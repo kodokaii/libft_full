@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/10/28 12:44:03 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/02 10:24:22 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,26 @@ t_uint	ft_llulen(t_llu n, int base);
 int		ft_min_int(int a, int b);
 t_uint	ft_min_uint(t_uint a, t_uint b);
 size_t	ft_min_size_t(size_t a, size_t b);
+ssize_t	ft_min_ssize(ssize_t a, ssize_t b);
+double	ft_min_double(double a, double b);
 
 int		ft_max_int(int a, int b);
 t_uint	ft_max_uint(t_uint a, t_uint b);
 size_t	ft_max_size(size_t a, size_t b);
 ssize_t	ft_max_ssize(ssize_t a, ssize_t b);
+double	ft_max_double(double a, double b);
 
 t_byte	ft_abs_char(t_byte n);
 t_uint	ft_abs_int(t_uint n);
+double	ft_abs_double(double n);
 
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
+t_bool	ft_isalpha(int c);
+t_bool	ft_isdigit(int c);
+t_bool	ft_isalnum(int c);
+t_bool	ft_isascii(int c);
+t_bool	ft_isprint(int c);
+t_bool	ft_isspace(int c);
+
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 
@@ -85,7 +91,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strpbrk(const char *s, const char *seps);
 char	*ft_strsep(const char *s, const char sep);
 
-int		ft_atoi(const char *nptr);
+int		ft_atoi(const char *str);
+double	ft_atof(const char *str);
 int		ft_strtoi(const char *nptr, char **endptr);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
@@ -99,9 +106,9 @@ char	*ft_strmapi(char const *s, char (*f)(size_t, char));
 void	ft_striteri(char *s, void (*f)(size_t, char*));
 
 void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putstrn_fd(char *s, size_t n, int fd);
-void	ft_putendl_fd(char *s, int fd);
+void	ft_putstr_fd(const char *s, int fd);
+void	ft_putstrn_fd(const char *s, size_t n, int fd);
+void	ft_putendl_fd(const char *s, int fd);
 
 void	ft_putuint_fd(t_uint n, int fd);
 void	ft_putint_fd(int n, int fd);

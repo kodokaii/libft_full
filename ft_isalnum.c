@@ -6,13 +6,13 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/10/16 14:58:48 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/10/31 20:24:39 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+t_bool	ft_isalnum(int c)
 {
 	return (('0' <= c && c <= '9')
 		|| ('a' <= c && c <= 'z')

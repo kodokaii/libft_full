@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/10/22 00:38:56 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/10/31 20:14:09 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,20 @@ t_uint	ft_min_uint(t_uint a, t_uint b)
 }
 
 size_t	ft_min_size_t(size_t a, size_t b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+ssize_t	ft_min_ssize(ssize_t a, ssize_t b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+double	ft_min_double(double a, double b)
 {
 	if (a < b)
 		return (a);

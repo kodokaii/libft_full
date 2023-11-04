@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/10/19 17:59:59 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/04 12:14:40 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static size_t	ft_split_count(char const *s, char c)
 	while (*current)
 	{
 		current = ft_strsep(s, c);
-		if (0 < current - s)
+		if (current != s)
 			split_count++;
 		s = current + 1;
 	}
@@ -52,7 +52,7 @@ char	**ft_split(char const *s, char c)
 		while (i < split_count)
 		{
 			current = ft_strsep(s, c);
-			if (0 < current - s)
+			if (current != s)
 			{
 				split[i] = ft_strndup(s, current - s);
 				if (!split[i])

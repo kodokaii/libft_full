@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/10/28 12:31:09 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/10/31 20:14:48 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,13 @@ size_t	ft_max_size(size_t a, size_t b)
 }
 
 ssize_t	ft_max_ssize(ssize_t a, ssize_t b)
+{
+	if (a < b)
+		return (b);
+	return (a);
+}
+
+double	ft_max_double(double a, double b)
 {
 	if (a < b)
 		return (b);
