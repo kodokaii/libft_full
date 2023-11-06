@@ -58,6 +58,7 @@ SRC 		= ft_abs.c\
 			  ft_tolower.c\
 			  ft_toupper.c\
 			  printf/ft_check.c\
+			  printf/ft_dprintf.c\
 			  printf/ft_hexa.c\
 			  printf/ft_integer.c\
 			  printf/ft_option.c\

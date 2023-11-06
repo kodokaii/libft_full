@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/11/02 10:24:22 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/06 16:01:47 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,7 @@ void	ft_putuint_base_fd(t_uint n, char *base, int fd);
 void	ft_putllu_base_fd(t_llu n, char *base, int fd);
 
 int		ft_printf(const char *str, ...);
+int		ft_dprintf(int fd, const char *str, ...);
 
 t_buf	ft_gnl(int fd);
 void	ft_close(int fd);

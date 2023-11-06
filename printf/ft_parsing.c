@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/10/22 21:30:25 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/06 15:52:30 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ static void	ft_get_format(const char **str,
 	}
 }
 
-t_uint	ft_printf_parsing(const char *str, va_list *arg_list)
+t_uint	ft_printf_parsing(const char *str, va_list *arg_list, int fd)
 {
 	t_printf_format	format;
 	t_uint			len;
@@ -110,7 +110,7 @@ t_uint	ft_printf_parsing(const char *str, va_list *arg_list)
 		{
 			ft_bzero(&format, sizeof(t_printf_format));
 			ft_get_format(&str, arg_list, &format);
-			ft_printf_format(&format);
+			ft_printf_format(&format, fd);
 			len += format.total_len;
 		}
 		else

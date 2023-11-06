@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/10/27 21:43:58 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/06 15:50:51 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_printf_init_prefix(t_printf_format *format, char *hash_prefix)
 	format->total_len += format->prefix_len;
 }
 
-t_uint	ft_printf_width_space(t_printf_format *format)
+t_uint	ft_printf_width_space(t_printf_format *format, int fd)
 {
 	t_uint	len;
 	t_uint	total_len;
@@ -51,33 +51,33 @@ t_uint	ft_printf_width_space(t_printf_format *format)
 	total_len += format->prefix_len;
 	while (total_len + len < format->width)
 	{
-		ft_putchar_fd(' ', 1);
+		ft_putchar_fd(' ', fd);
 		len++;
 	}
 	return (len);
 }
 
-t_uint	ft_printf_width_zero(t_printf_format *format)
+t_uint	ft_printf_width_zero(t_printf_format *format, int fd)
 {
 	t_uint	len;
 
 	len = 0;
 	while (format->var_len + format->prefix_len + len < format->width)
 	{
-		ft_putchar_fd('0', 1);
+		ft_putchar_fd('0', fd);
 		len++;
 	}
 	return (len);
 }
 
-t_uint	ft_printf_precision(t_printf_format *format)
+t_uint	ft_printf_precision(t_printf_format *format, int fd)
 {
 	t_uint	len;
 
 	len = 0;
 	while (format->var_len + len < format->precision)
 	{
-		ft_putchar_fd('0', 1);
+		ft_putchar_fd('0', fd);
 		len++;
 	}
 	return (len);

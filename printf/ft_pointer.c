@@ -6,13 +6,13 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/10/27 21:44:06 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/06 15:57:33 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_printf_str(t_printf_format *format)
+void	ft_printf_str(t_printf_format *format, int fd)
 {
 	char	*str;
 	t_uint	len;
@@ -28,13 +28,13 @@ void	ft_printf_str(t_printf_format *format)
 		len = ft_min_uint(format->precision, len);
 	ft_printf_init_len(format, len);
 	ft_printf_init_prefix(format, "");
-	ft_printf_after_var(format);
+	ft_printf_after_var(format, fd);
 	if (display)
 		ft_putstrn_fd(str, len, 1);
-	ft_printf_before_var(format);
+	ft_printf_before_var(format, fd);
 }
 
-void	ft_printf_ptr(t_printf_format *format)
+void	ft_printf_ptr(t_printf_format *format, int fd)
 {
 	void	*ptr;
 	t_bool	display;
@@ -51,10 +51,10 @@ void	ft_printf_ptr(t_printf_format *format)
 	format->var_len = 5;
 	ft_printf_init_len(format, ft_llulen((t_llu)ptr, 16));
 	ft_printf_init_prefix(format, "0x");
-	ft_printf_after_var(format);
+	ft_printf_after_var(format, fd);
 	if (ptr)
 		ft_putllu_base_fd((t_llu)ptr, "0123456789abcdef", 1);
 	else
 		ft_putstr_fd("(nil)", 1);
-	ft_printf_before_var(format);
+	ft_printf_before_var(format, fd);
 }
