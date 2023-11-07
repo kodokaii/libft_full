@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/07 00:58:31 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/07 01:20:31 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	ft_close(int *fd)
 	int	res;
 
 	res = 0;
-	if (0 <= fd)
+	if (0 <= *fd)
 	{
 		ft_gnl(-*fd);
 		res = close(*fd);
