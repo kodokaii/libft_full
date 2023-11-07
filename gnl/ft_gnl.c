@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/10/28 12:28:49 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/07 00:58:31 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,16 @@ t_buf	ft_gnl(int fd)
 	return (line);
 }
 
-void	ft_close(int fd)
+int	ft_close(int *fd)
 {
+	int	res;
+
+	res = 0;
 	if (0 <= fd)
-		ft_gnl(-fd);
-	if (2 < fd)
-		close(fd);
+	{
+		ft_gnl(-*fd);
+		res = close(*fd);
+		*fd = INVALID_FD;
+	}
+	return (res);
 }

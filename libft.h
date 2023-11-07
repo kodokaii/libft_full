@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/11/06 16:01:47 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/07 00:58:04 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 # include <errno.h>
 # include <fcntl.h>
 # include <unistd.h>
+
+# define INVALID_PID -1
+# define INVALID_FD -1
 
 typedef unsigned char		t_byte;
 typedef unsigned int		t_uint;
@@ -121,7 +124,7 @@ int		ft_printf(const char *str, ...);
 int		ft_dprintf(int fd, const char *str, ...);
 
 t_buf	ft_gnl(int fd);
-void	ft_close(int fd);
+int		ft_close(int *fd);
 
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *mew);
