@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/06 16:05:47 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/07 15:08:32 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_printf_after_var(t_printf_format *format, int fd)
 			|| (STATE(format, PRINTF_PRECISION)
 				&& FLAGS(format, PRINTF_POINT))))
 		format->total_len += ft_printf_width_space(format, fd);
-	ft_putstr_fd(format->prefix, 1);
+	ft_putstr_fd(format->prefix, fd);
 	if (STATE(format, PRINTF_WIDTH_ZERO) && FLAGS(format, PRINTF_ZERO)
 		&& (NFLAGS(format, PRINTF_POINT) || NSTATE(format, PRINTF_PRECISION))
 		&& STATE(format, PRINTF_DISPLAY))

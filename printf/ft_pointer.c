@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/06 15:57:33 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/07 15:07:58 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_printf_str(t_printf_format *format, int fd)
 	ft_printf_init_prefix(format, "");
 	ft_printf_after_var(format, fd);
 	if (display)
-		ft_putstrn_fd(str, len, 1);
+		ft_putstrn_fd(str, len, fd);
 	ft_printf_before_var(format, fd);
 }
 
@@ -53,8 +53,8 @@ void	ft_printf_ptr(t_printf_format *format, int fd)
 	ft_printf_init_prefix(format, "0x");
 	ft_printf_after_var(format, fd);
 	if (ptr)
-		ft_putllu_base_fd((t_llu)ptr, "0123456789abcdef", 1);
+		ft_putllu_base_fd((t_llu)ptr, "0123456789abcdef", fd);
 	else
-		ft_putstr_fd("(nil)", 1);
+		ft_putstr_fd("(nil)", fd);
 	ft_printf_before_var(format, fd);
 }

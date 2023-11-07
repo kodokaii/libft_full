@@ -1,11 +1,13 @@
 NAME 		= libft.a
 CC 			= cc
-CFLAGS 		+= -Wall -Wextra -Werror
+CFLAGS 		+= -Wall -Wextra -Werror -O3
 SRC 		= ft_abs.c\
 			  ft_atoi.c\
 			  ft_atof.c\
 			  ft_bzero.c\
+			  ft_basename.c\
 			  ft_calloc.c\
+			  ft_get_envp.c\
 			  ft_isalnum.c\
 			  ft_isalpha.c\
 			  ft_isascii.c\
@@ -46,6 +48,7 @@ SRC 		= ft_abs.c\
 			  ft_strlcpy.c\
 			  ft_strlen.c\
 			  ft_strmapi.c\
+			  ft_strcmp.c\
 			  ft_strncmp.c\
 			  ft_strndup.c\
 			  ft_strnstr.c\

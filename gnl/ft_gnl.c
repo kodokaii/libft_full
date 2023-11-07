@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/07 01:20:31 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/07 12:56:54 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	ft_close(int *fd)
 	int	res;
 
 	res = 0;
-	if (0 <= *fd)
+	if (STDERR_FILENO < *fd)
 	{
 		ft_gnl(-*fd);
 		res = close(*fd);
