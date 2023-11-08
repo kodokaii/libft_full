@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/11/08 19:04:44 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/09 00:31:02 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <limits.h>
 # include <errno.h>
 # include <fcntl.h>
+# include <sys/types.h>
+# include <sys/wait.h>
 # include <unistd.h>
 
 # define INVALID_PID -1
@@ -136,6 +138,12 @@ char const	*ft_get_envp(char const *var, char *const *envp);
 
 t_buf		ft_gnl(int fd);
 int			ft_close(int *fd);
+
+int			ft_get_heredoc(char const *limiter);
+char		*ft_which(char const *cmd, char *const *envp);
+
+pid_t		ft_execve(int *in, char const *cmd, char *const *envp, int *out);
+int			ft_pipex(int in, char *const *cmd, char *const *envp, int out);
 
 t_list		*ft_lstnew(void *content);
 void		ft_lstadd_front(t_list **lst, t_list *mew);
