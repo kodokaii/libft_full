@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/04 12:14:40 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/08 19:06:52 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,46 +20,27 @@ static char	**ft_split_free(char **split, size_t i)
 	return (NULL);
 }
 
-static size_t	ft_split_count(char const *s, char c)
+char	**ft_split(char const *s, char *sep)
 {
-	size_t		split_count;
-	char const	*current;
-
-	current = s;
-	split_count = 0;
-	while (*current)
-	{
-		current = ft_strsep(s, c);
-		if (current != s)
-			split_count++;
-		s = current + 1;
-	}
-	return (split_count);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	size_t		i;
-	size_t		split_count;
-	char const	*current;
 	char		**split;
+	size_t		split_count;
+	size_t		i;
 
-	split_count = ft_split_count(s, c);
+	split_count = ft_count_word(s, sep);
 	split = malloc((split_count + 1) * sizeof(char *));
 	if (split)
 	{
 		i = 0;
 		while (i < split_count)
 		{
-			current = ft_strsep(s, c);
-			if (current != s)
-			{
-				split[i] = ft_strndup(s, current - s);
-				if (!split[i])
-					return (ft_split_free(split, i));
-				i++;
-			}
-			s = current + 1;
+			while (*s && ft_strchr(sep, *s))
+				s++;
+			split[i] = ft_strndup(s, ft_word_len(s, sep));
+			if (!split[i])
+				return (ft_split_free(split, i));
+			while (*s && !ft_strchr(sep, *s))
+				s++;
+			i++;
 		}
 		split[i] = NULL;
 	}

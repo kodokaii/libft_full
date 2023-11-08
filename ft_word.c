@@ -1,27 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_word.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/08 15:40:03 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/08 19:04:52 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(void const *s, int c, size_t n)
+size_t	ft_word_len(char const *str, char const *sep)
 {
-	size_t	i;
+	size_t	word_len;
 
-	i = 0;
-	while (i < n)
+	word_len = 0;
+	while (str[word_len] && !ft_strchr(sep, str[word_len]))
+		word_len++;
+	return (word_len);
+}
+
+size_t	ft_count_word(char const *str, char const *sep)
+{
+	size_t	word_count;
+	size_t	word_len;
+
+	word_count = 0;
+	while (*str)
 	{
-		if (((t_byte *)s)[i] == (t_byte)c)
-			return ((void *)s + i);
-		i++;
+		word_len = ft_word_len(str, sep);
+		if (word_len)
+		{
+			str += word_len;
+			word_count++;
+		}
+		else
+			str++;
 	}
-	return (NULL);
+	return (word_count);
 }
