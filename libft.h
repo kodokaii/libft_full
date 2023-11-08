@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/11/07 14:23:00 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/08 01:28:23 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <stdio.h>
+# include <string.h>
 # include <limits.h>
 # include <errno.h>
 # include <fcntl.h>
@@ -124,7 +125,9 @@ void		ft_putllu_base_fd(t_llu n, char *base, int fd);
 int			ft_printf(const char *str, ...);
 int			ft_dprintf(int fd, const char *str, ...);
 
-char const	*ft_basename(char const *s);
+char		**ft_argv(char **init_argv);
+
+char		*ft_basename(char const *s);
 char const	*ft_get_envp(char const *var, char *const *envp);
 
 t_buf		ft_gnl(int fd);

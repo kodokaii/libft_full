@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_gnl.h                                           :+:      :+:    :+:   */
+/*   ft_argv.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlaerema <nlaerema@student.42lehavre.fr>   +#+  +:+       +#+        */
+/*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/07 23:08:16 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/08 01:28:08 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_GNL_H
-# define FT_GNL_H
+#include "libft.h"
 
-# define FT_BUFFER_SIZE	16
-# define FT_FD_MAX 1024
+char	**ft_argv(char **init_argv)
+{
+	static char	**argv = NULL;
 
-# include "../libft.h"
-
-void	ft_read_line(int fd, t_buf *line, t_buf *buf, ssize_t read_size);
-
-#endif
+	if (init_argv)
+		argv = init_argv;
+	return (argv);
+}

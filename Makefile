@@ -1,9 +1,10 @@
 NAME 		= libft.a
 CC 			= cc
-CFLAGS 		+= -Wall -Wextra -Werror -O3
+CFLAGS 		+= -Wall -Wextra -Werror
 SRC 		= ft_abs.c\
 			  ft_atoi.c\
 			  ft_atof.c\
+			  ft_argv.c\
 			  ft_bzero.c\
 			  ft_basename.c\
 			  ft_calloc.c\
@@ -68,7 +69,8 @@ SRC 		= ft_abs.c\
 			  printf/ft_parsing.c\
 			  printf/ft_pointer.c\
 			  printf/ft_printf.c\
-			  gnl/ft_gnl.c
+			  gnl/ft_gnl.c\
+			  gnl/ft_read_line.c
 
 OBJ 		= $(SRC:.c=.o)
 
