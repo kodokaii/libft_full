@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/08 01:29:25 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/09 00:56:13 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ char	*ft_basename(char const *s)
 
 	name = ft_strrchr(s, '/');
 	if (!name)
-		name = (char *)s;
-	else
-		name++;
-	return (name);
+		return ((char *)s);
+	return (name + 1);
 }
