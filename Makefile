@@ -60,6 +60,7 @@ SRC 		= ft_abs.c\
 			  ft_strtoi.c\
 			  ft_strtrim.c\
 			  ft_substr.c\
+			  ft_swap.c\
 			  ft_tolower.c\
 			  ft_toupper.c\
 			  ft_which.c\

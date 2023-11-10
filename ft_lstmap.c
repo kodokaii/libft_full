@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/10/18 21:52:17 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/10 20:47:20 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		if (!*current)
 		{
 			ft_lstclear(&root, del);
-			(*del)(content);
+			if (del)
+				(*del)(content);
 			return (NULL);
 		}
 		current = &(*current)->next;
