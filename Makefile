@@ -8,6 +8,7 @@ SRC 		= ft_abs.c\
 			  ft_basename.c\
 			  ft_bzero.c\
 			  ft_calloc.c\
+			  ft_exp.c\
 			  ft_get_envp.c\
 			  ft_heredoc.c\
 			  ft_isalnum.c\

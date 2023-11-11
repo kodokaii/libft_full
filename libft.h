@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/11/11 17:06:52 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/11 17:46:55 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ t_byte		ft_abs_char(t_byte n);
 t_uint		ft_abs_int(t_uint n);
 float		ft_abs_float(float n);
 double		ft_abs_double(double n);
+
+float		ft_expf(float x);
 
 void		ft_swap_int(int *a, int *b);
 
