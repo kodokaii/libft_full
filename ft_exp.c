@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/11 17:46:18 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/11 17:51:27 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ float	ft_expf(float x)
 	{
 		s *= x / n;
 		res += s;
+		n++;
 	}
 	return (res);
 }
