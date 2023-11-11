@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/02 10:23:49 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/11 17:05:57 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@ t_byte	ft_abs_char(t_byte n)
 t_uint	ft_abs_int(t_uint n)
 {
 	if ((int)n < 0)
+		return (-n);
+	return (n);
+}
+
+float	ft_abs_float(float n)
+{
+	if (n < 0.0f)
 		return (-n);
 	return (n);
 }
