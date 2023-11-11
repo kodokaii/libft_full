@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/11 17:51:27 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/11 17:56:52 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ float	ft_expf(float x)
 	s = 1;
 	n = 1;
 	res = 1;
-	while (n <= 10)
+	while (n <= 32)
 	{
 		s *= x / n;
 		res += s;
