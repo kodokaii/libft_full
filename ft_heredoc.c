@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/09 22:28:31 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/13 00:43:20 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	ft_get_heredoc(char const *limiter)
 	while (limiter_len + 1 != line.len
 		|| ft_memcmp(limiter, line.buf, limiter_len))
 	{
-		if (line.len && line.buf[line.len - 1] == '\n')
+		if (line.len && ((char *)line.buf)[line.len - 1] == '\n')
 			ft_putstr_fd("ft_heredoc> ", STDOUT_FILENO);
 		if (write(heredoc_write, line.buf, line.len) != line.len)
 			return (heredoc_exit(&line, heredoc_write, FT_TRUE));

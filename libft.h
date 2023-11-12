@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/11/11 17:46:55 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/13 00:40:38 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef enum e_bool
 
 typedef struct s_buf
 {
-	t_byte	*buf;
+	void	*buf;
 	ssize_t	len;
 }	t_buf;
 

@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/08 02:03:52 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/13 00:44:00 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	update_len(t_buf *oldbuf, t_buf *line)
 	len = 0;
 	if (0 < oldbuf->len && oldbuf->buf)
 	{
-		while (len < oldbuf->len && oldbuf->buf[len] != '\n')
+		while (len < oldbuf->len && ((char *)oldbuf->buf)[len] != '\n')
 			len++;
 		if (len != oldbuf->len)
 			oldbuf->len = len + 1;
@@ -33,7 +33,7 @@ static void	line_allocation(t_buf *line, t_buf *buf, t_buf *oldbuf)
 		line->buf = malloc(line->len + 1);
 	if (line->buf)
 	{
-		line->buf[line->len] = '\0';
+		((char *)line->buf)[line->len] = '\0';
 		line->buf += line->len;
 		buf->len -= oldbuf->len;
 		buf->buf = ft_memdup(oldbuf->buf + oldbuf->len, buf->len);
