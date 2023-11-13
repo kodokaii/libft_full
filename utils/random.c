@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/13 21:13:57 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/13 22:21:27 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,21 @@ int	ft_rand(void)
 	seed = ft_srand(0) * 1103515245 + 12345;
 	ft_srand(seed);
 	return (seed % ((t_uint)INT_MAX + 1));
+}
+
+float	ft_randf(void)
+{
+	return ((float)ft_rand() / (float)INT_MAX);
+}
+
+float	ft_randf_norm(void)
+{
+	float	rnd;
+	t_uint	i;
+
+	i = 0;
+	rnd = 0;
+	while (i++ < 6)
+		rnd += ft_randf();
+	return (rnd / 6);
 }

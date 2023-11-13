@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/11/13 21:20:45 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/13 22:39:48 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ float		ft_expf(float x);
 void		ft_swap_int(int *a, int *b);
 t_llu		ft_srand(t_llu init_seed);
 int			ft_rand(void);
+float		ft_randf(void);
+float		ft_randf_norm(void);
 
 t_bool		ft_isalpha(int c);
 t_bool		ft_isdigit(int c);
@@ -104,7 +106,7 @@ void		*ft_memchrset(void const *s, void const *set,
 				size_t size_s, size_t size_set);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
 
-int			ft_buf_write(t_buf *dst, t_buf *src, size_t offset);
+void		*ft_buf_write(t_buf dst, t_buf src, size_t offset);
 void		*ft_realloc(void *ptr, size_t oldsize, size_t newsize);
 
 size_t		ft_strlen(const char *s);
