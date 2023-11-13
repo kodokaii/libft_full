@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pipex.h                                         :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlaerema <nlaerema@student.42lehavre.fr>   +#+  +:+       +#+        */
+/*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/13 01:49:27 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/10/18 12:53:08 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PIPEX_H
-# define FT_PIPEX_H
+#include "../libft.h"
 
-# include "../libft.h"
-# include <sys/types.h>
-# include <sys/wait.h>
-
-typedef enum e_execve_error
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	EXCV_NO_ERROR,
-	EXCV_CMD_ERROR,
-	EXCV_FORK_ERROR,
-	EXCV_OTHER_ERROR
-}	t_execve_error;
+	size_t	i;
 
-typedef struct s_pipe
-{
-	int	in[2];
-	int	out[2];
-}	t_pipe;
-
-typedef struct s_exec
-{
-	char	*cmd_path;
-	char	**argv;
-	char	**envp;
-}	t_exec;
-
-#endif
+	if (dest < src)
+	{
+		i = 0;
+		while (i < n)
+		{
+			((t_byte *)dest)[i] = ((t_byte *)src)[i];
+			i++;
+		}
+	}
+	else if (src < dest)
+	{
+		while (n--)
+			((t_byte *)dest)[n] = ((t_byte *)src)[n];
+	}
+	return (dest);
+}

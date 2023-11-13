@@ -1,41 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pipex.h                                         :+:      :+:    :+:   */
+/*   ft_argv.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlaerema <nlaerema@student.42lehavre.fr>   +#+  +:+       +#+        */
+/*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/13 01:49:27 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/08 01:28:08 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PIPEX_H
-# define FT_PIPEX_H
+#include "../libft.h"
 
-# include "../libft.h"
-# include <sys/types.h>
-# include <sys/wait.h>
-
-typedef enum e_execve_error
+char	**ft_argv(char **init_argv)
 {
-	EXCV_NO_ERROR,
-	EXCV_CMD_ERROR,
-	EXCV_FORK_ERROR,
-	EXCV_OTHER_ERROR
-}	t_execve_error;
+	static char	**argv = NULL;
 
-typedef struct s_pipe
-{
-	int	in[2];
-	int	out[2];
-}	t_pipe;
-
-typedef struct s_exec
-{
-	char	*cmd_path;
-	char	**argv;
-	char	**envp;
-}	t_exec;
-
-#endif
+	if (init_argv)
+		argv = init_argv;
+	return (argv);
+}

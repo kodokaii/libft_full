@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pipex.h                                         :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlaerema <nlaerema@student.42lehavre.fr>   +#+  +:+       +#+        */
+/*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/13 01:49:27 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/10/22 01:55:51 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PIPEX_H
-# define FT_PIPEX_H
+#include "../libft.h"
 
-# include "../libft.h"
-# include <sys/types.h>
-# include <sys/wait.h>
-
-typedef enum e_execve_error
+void	ft_putint_fd(int n, int fd)
 {
-	EXCV_NO_ERROR,
-	EXCV_CMD_ERROR,
-	EXCV_FORK_ERROR,
-	EXCV_OTHER_ERROR
-}	t_execve_error;
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n = -n;
+	}
+	ft_putuint_fd(n, fd);
+}
 
-typedef struct s_pipe
+void	ft_putuint_fd(t_uint n, int fd)
 {
-	int	in[2];
-	int	out[2];
-}	t_pipe;
-
-typedef struct s_exec
-{
-	char	*cmd_path;
-	char	**argv;
-	char	**envp;
-}	t_exec;
-
-#endif
+	if (n / 10)
+		ft_putuint_fd(n / 10, fd);
+	ft_putchar_fd('0' + n % 10, fd);
+}

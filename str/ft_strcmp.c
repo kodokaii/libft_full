@@ -1,41 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pipex.h                                         :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlaerema <nlaerema@student.42lehavre.fr>   +#+  +:+       +#+        */
+/*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/13 01:49:27 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/07 13:32:52 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PIPEX_H
-# define FT_PIPEX_H
+#include "../libft.h"
 
-# include "../libft.h"
-# include <sys/types.h>
-# include <sys/wait.h>
-
-typedef enum e_execve_error
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	EXCV_NO_ERROR,
-	EXCV_CMD_ERROR,
-	EXCV_FORK_ERROR,
-	EXCV_OTHER_ERROR
-}	t_execve_error;
+	size_t	i;
 
-typedef struct s_pipe
-{
-	int	in[2];
-	int	out[2];
-}	t_pipe;
-
-typedef struct s_exec
-{
-	char	*cmd_path;
-	char	**argv;
-	char	**envp;
-}	t_exec;
-
-#endif
+	i = 0;
+	while (s1[i] && s1[i] == s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}

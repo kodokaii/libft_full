@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pipex.h                                         :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlaerema <nlaerema@student.42lehavre.fr>   +#+  +:+       +#+        */
+/*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/13 01:49:27 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/11 17:05:57 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PIPEX_H
-# define FT_PIPEX_H
+#include "../libft.h"
 
-# include "../libft.h"
-# include <sys/types.h>
-# include <sys/wait.h>
-
-typedef enum e_execve_error
+t_byte	ft_abs_char(t_byte n)
 {
-	EXCV_NO_ERROR,
-	EXCV_CMD_ERROR,
-	EXCV_FORK_ERROR,
-	EXCV_OTHER_ERROR
-}	t_execve_error;
+	if ((char)n < 0)
+		return (-n);
+	return (n);
+}
 
-typedef struct s_pipe
+t_uint	ft_abs_int(t_uint n)
 {
-	int	in[2];
-	int	out[2];
-}	t_pipe;
+	if ((int)n < 0)
+		return (-n);
+	return (n);
+}
 
-typedef struct s_exec
+float	ft_abs_float(float n)
 {
-	char	*cmd_path;
-	char	**argv;
-	char	**envp;
-}	t_exec;
+	if (n < 0.0f)
+		return (-n);
+	return (n);
+}
 
-#endif
+double	ft_abs_double(double n)
+{
+	if (n < 0.0L)
+		return (-n);
+	return (n);
+}

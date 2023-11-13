@@ -1,73 +1,48 @@
 NAME 		= libft.a
 CC 			= cc
 CFLAGS 		+= -Wall -Wextra -Werror
-SRC 		= ft_abs.c\
-			  ft_argv.c\
-			  ft_atof.c\
-			  ft_atoi.c\
-			  ft_basename.c\
-			  ft_bzero.c\
-			  ft_calloc.c\
-			  ft_exp.c\
-			  ft_get_envp.c\
-			  ft_heredoc.c\
-			  ft_isalnum.c\
-			  ft_isalpha.c\
-			  ft_isascii.c\
-			  ft_isdigit.c\
-			  ft_isprint.c\
-			  ft_isspace.c\
-			  ft_itoa.c\
-			  ft_lstadd_back.c\
-			  ft_lstadd_front.c\
-			  ft_lstclear.c\
-			  ft_lstdelone.c\
-			  ft_lstiter.c\
-			  ft_lstlast.c\
-			  ft_lstmap.c\
-			  ft_lstnew.c\
-			  ft_lstsize.c\
-			  ft_max.c\
-			  ft_memchr.c\
-			  ft_memchrset.c\
-			  ft_memcmp.c\
-			  ft_memcpy.c\
-			  ft_memdup.c\
-			  ft_memmove.c\
-			  ft_memset.c\
-			  ft_min.c\
-			  ft_nblen.c\
-			  ft_putchar_fd.c\
-			  ft_putendl_fd.c\
-			  ft_putnbr_base_fd.c\
-			  ft_putnbr_fd.c\
-			  ft_putstr_fd.c\
-			  ft_putstrn_fd.c\
-			  ft_split.c\
-			  ft_strchr.c\
-			  ft_strcmp.c\
-			  ft_strdup.c\
-			  ft_striteri.c\
-			  ft_strjoin.c\
-			  ft_strlcat.c\
-			  ft_strlcpy.c\
-			  ft_strlen.c\
-			  ft_strmapi.c\
-			  ft_strncmp.c\
-			  ft_strndup.c\
-			  ft_strnstr.c\
-			  ft_strpbrk.c\
-			  ft_strrchr.c\
-			  ft_strtoi.c\
-			  ft_strtrim.c\
-			  ft_substr.c\
-			  ft_swap.c\
-			  ft_tolower.c\
-			  ft_toupper.c\
-			  ft_which.c\
-			  ft_word.c\
+SRC 		= bst/ft_bstchr.c\
+			  bst/ft_bstiter_infix.c\
+			  bst/ft_bstiter_prefix.c\
+			  bst/ft_bstiter_suffix.c\
+			  bst/ft_bstlevel_count.c\
+			  bst/ft_bstnew.c\
+			  bst/ft_bstpush.c\
+			  buf/ft_buf_write.c\
+			  convert/ft_atof.c\
+			  convert/ft_atoi.c\
+			  convert/ft_itoa.c\
+			  convert/ft_nblen.c\
+			  convert/ft_split.c\
+			  convert/ft_word.c\
 			  gnl/ft_gnl.c\
 			  gnl/ft_read_line.c\
+			  is/ft_isalnum.c\
+			  is/ft_isalpha.c\
+			  is/ft_isascii.c\
+			  is/ft_isdigit.c\
+			  is/ft_isprint.c\
+			  is/ft_isspace.c\
+			  lst/ft_lstadd_back.c\
+			  lst/ft_lstadd_front.c\
+			  lst/ft_lstclear.c\
+			  lst/ft_lstdelone.c\
+			  lst/ft_lstiter.c\
+			  lst/ft_lstlast.c\
+			  lst/ft_lstmap.c\
+			  lst/ft_lstnew.c\
+			  lst/ft_lstsize.c\
+			  math/ft_exp.c\
+			  mem/ft_bzero.c\
+			  mem/ft_calloc.c\
+			  mem/ft_memchr.c\
+			  mem/ft_memchrset.c\
+			  mem/ft_memcmp.c\
+			  mem/ft_memcpy.c\
+			  mem/ft_memdup.c\
+			  mem/ft_memmove.c\
+			  mem/ft_memset.c\
+			  mem/ft_realloc.c\
 			  pipex/ft_execve.c\
 			  pipex/ft_pipex.c\
 			  printf/ft_check.c\
@@ -78,6 +53,40 @@ SRC 		= ft_abs.c\
 			  printf/ft_parsing.c\
 			  printf/ft_pointer.c\
 			  printf/ft_printf.c\
+			  put/ft_putchar_fd.c\
+			  put/ft_putendl_fd.c\
+			  put/ft_putnbr_base_fd.c\
+			  put/ft_putnbr_fd.c\
+			  put/ft_putstr_fd.c\
+			  put/ft_putstrn_fd.c\
+			  shell/ft_heredoc.c\
+			  shell/ft_which.c\
+			  str/ft_strchr.c\
+			  str/ft_strcmp.c\
+			  str/ft_strdup.c\
+			  str/ft_striteri.c\
+			  str/ft_strjoin.c\
+			  str/ft_strlcat.c\
+			  str/ft_strlcpy.c\
+			  str/ft_strlen.c\
+			  str/ft_strmapi.c\
+			  str/ft_strncmp.c\
+			  str/ft_strndup.c\
+			  str/ft_strnstr.c\
+			  str/ft_strpbrk.c\
+			  str/ft_strrchr.c\
+			  str/ft_strtoi.c\
+			  str/ft_strtrim.c\
+			  str/ft_substr.c\
+			  str/ft_tolower.c\
+			  str/ft_toupper.c\
+			  utils/ft_abs.c\
+			  utils/ft_argv.c\
+			  utils/ft_basename.c\
+			  utils/ft_get_envp.c\
+			  utils/ft_max.c\
+			  utils/ft_min.c\
+			  utils/ft_swap.c
 
 OBJ 		= $(SRC:.c=.o)
 
