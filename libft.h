@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/11/13 02:21:25 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/13 03:01:02 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,6 +173,7 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_bst		*ft_bstnew(void *content);
 t_bst		*ft_bstpush(t_bst **root, void *content,
 				int (*cmpf)(void *, void *));
+void		ft_bstclear(t_bst **root, void (*del)(void *));
 void		ft_bstiter_prefix(t_bst *root, void (*f)(void *));
 void		ft_bstiter_suffix(t_bst *root, void (*f)(void *));
 void		ft_bstiter_infix(t_bst *root, void (*f)(void *));
