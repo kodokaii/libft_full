@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/11/13 00:40:38 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/13 01:24:04 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 
 # define INVALID_PID -1
 # define INVALID_FD -1
+# define INVALID_SIZE -1
 
 typedef unsigned char		t_byte;
 typedef unsigned int		t_uint;
@@ -39,7 +40,7 @@ typedef enum e_bool
 typedef struct s_buf
 {
 	void	*buf;
-	ssize_t	len;
+	ssize_t	size;
 }	t_buf;
 
 typedef struct s_list
@@ -55,7 +56,7 @@ t_uint		ft_llulen(t_llu n, int base);
 
 int			ft_min_int(int a, int b);
 t_uint		ft_min_uint(t_uint a, t_uint b);
-size_t		ft_min_size_t(size_t a, size_t b);
+size_t		ft_min_size(size_t a, size_t b);
 ssize_t		ft_min_ssize(ssize_t a, ssize_t b);
 double		ft_min_double(double a, double b);
 
@@ -93,6 +94,8 @@ void		*ft_memchr(const void *s, int c, size_t n);
 void		*ft_memchrset(void const *s, void const *set,
 				size_t size_s, size_t size_set);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
+
+void		*ft_realloc(void *ptr, size_t oldsize, size_t newsize);
 
 size_t		ft_strlen(const char *s);
 size_t		ft_strlcpy(char *dst, const char *src, size_t size);

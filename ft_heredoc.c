@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/13 00:43:20 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/13 01:00:50 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,23 +36,23 @@ int	ft_get_heredoc(char const *limiter)
 	t_buf	line;
 	int		heredoc_write;
 
-	line.len = 0;
+	line.size = 0;
 	line.buf = NULL;
 	limiter_len = ft_strlen(limiter);
 	heredoc_write = open(FILE_TMP, O_WRONLY | O_TRUNC | O_CREAT, 0b110100100);
 	if (heredoc_write == INVALID_FD)
 		return (heredoc_exit(NULL, heredoc_write, FT_TRUE));
 	ft_putstr_fd("ft_heredoc> ", STDOUT_FILENO);
-	while (limiter_len + 1 != line.len
+	while (limiter_len + 1 != line.size
 		|| ft_memcmp(limiter, line.buf, limiter_len))
 	{
-		if (line.len && ((char *)line.buf)[line.len - 1] == '\n')
+		if (line.size && ((char *)line.buf)[line.size - 1] == '\n')
 			ft_putstr_fd("ft_heredoc> ", STDOUT_FILENO);
-		if (write(heredoc_write, line.buf, line.len) != line.len)
+		if (write(heredoc_write, line.buf, line.size) != line.size)
 			return (heredoc_exit(&line, heredoc_write, FT_TRUE));
 		free(line.buf);
 		line = ft_gnl(STDIN_FILENO);
-		if (line.len < 0)
+		if (line.size < 0)
 			return (heredoc_exit(&line, heredoc_write, FT_TRUE));
 	}
 	return (heredoc_exit(&line, heredoc_write, FT_FALSE));

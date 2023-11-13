@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/13 00:44:00 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/13 01:25:19 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,32 +17,32 @@ static void	update_len(t_buf *oldbuf, t_buf *line)
 	ssize_t	len;
 
 	len = 0;
-	if (0 < oldbuf->len && oldbuf->buf)
+	if (0 < oldbuf->size && oldbuf->buf)
 	{
-		while (len < oldbuf->len && ((char *)oldbuf->buf)[len] != '\n')
+		while (len < oldbuf->size && ((char *)oldbuf->buf)[len] != '\n')
 			len++;
-		if (len != oldbuf->len)
-			oldbuf->len = len + 1;
-		line->len += oldbuf->len;
+		if (len != oldbuf->size)
+			oldbuf->size = len + 1;
+		line->size += oldbuf->size;
 	}
 }
 
 static void	line_allocation(t_buf *line, t_buf *buf, t_buf *oldbuf)
 {
-	if (line->len)
-		line->buf = malloc(line->len + 1);
+	if (line->size)
+		line->buf = malloc(line->size + 1);
 	if (line->buf)
 	{
-		((char *)line->buf)[line->len] = '\0';
-		line->buf += line->len;
-		buf->len -= oldbuf->len;
-		buf->buf = ft_memdup(oldbuf->buf + oldbuf->len, buf->len);
+		((char *)line->buf)[line->size] = '\0';
+		line->buf += line->size;
+		buf->size -= oldbuf->size;
+		buf->buf = ft_memdup(oldbuf->buf + oldbuf->size, buf->size);
 	}
-	if (!line->buf || (!buf->buf && buf->len))
+	if (!line->buf || (!buf->buf && buf->size))
 	{
-		line->len = 0;
+		line->size = INVALID_SIZE;
 		line->buf = NULL;
-		buf->len = 0;
+		buf->size = INVALID_SIZE;
 		buf->buf = NULL;
 	}
 }
@@ -53,22 +53,22 @@ void	ft_read_line(int fd, t_buf *line, t_buf *buf, ssize_t read_size)
 
 	oldbuf = *buf;
 	update_len(&oldbuf, line);
-	if (oldbuf.len == read_size)
+	if (oldbuf.size == read_size)
 	{
 		read_size = ft_max_ssize(read_size, FT_BUFFER_SIZE) * 2;
 		buf->buf = malloc(read_size);
 		if (buf->buf)
 		{
-			buf->len = read(fd, buf->buf, read_size);
-			if (buf->len < 0)
-				line->len = -1;
-			if (0 <= buf->len)
+			buf->size = read(fd, buf->buf, read_size);
+			if (buf->size < 0)
+				line->size = INVALID_SIZE;
+			if (0 <= buf->size)
 				ft_read_line(fd, line, buf, read_size);
 		}
 	}
 	else if (oldbuf.buf)
 		line_allocation(line, buf, &oldbuf);
 	if (oldbuf.buf && line->buf)
-		line->buf = ft_memcpy(line->buf - oldbuf.len, oldbuf.buf, oldbuf.len);
+		line->buf = ft_memcpy(line->buf - oldbuf.size, oldbuf.buf, oldbuf.size);
 	free(oldbuf.buf);
 }

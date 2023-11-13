@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/08 01:48:09 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/13 00:59:52 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ t_buf	ft_gnl(int fd)
 	t_buf			*save;
 	t_buf			line;
 
-	line.len = 0;
+	line.size = 0;
 	line.buf = NULL;
 	save = buf_save(fd, INVALID_FD);
 	if (!save)
 		return ((t_buf){NULL, 0});
-	ft_read_line(fd, &line, save, save->len);
+	ft_read_line(fd, &line, save, save->size);
 	return (line);
 }
 
