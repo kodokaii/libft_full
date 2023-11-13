@@ -86,6 +86,7 @@ SRC 		= bst/ft_bstchr.c\
 			  utils/ft_get_envp.c\
 			  utils/ft_max.c\
 			  utils/ft_min.c\
+			  utils/random.c\
 			  utils/ft_swap.c
 
 OBJ 		= $(SRC:.c=.o)
