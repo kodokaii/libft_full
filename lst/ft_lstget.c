@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstget.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/14 21:53:26 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/14 17:43:50 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_bstclear(t_bst **root, void (*del)(void *))
+t_list	*ft_lstget(t_list *lst, t_uint index)
 {
-	if (*root)
-	{
-		ft_bstclear(&(*root)->left, del);
-		ft_bstclear(&(*root)->right, del);
-		if (del)
-			(*del)((*root)->content);
-		free(root);
-	}
+	t_uint	i;
+
+	i = 0;
+	while (lst && i++ < index)
+		lst = lst->next;
+	return (lst);
 }

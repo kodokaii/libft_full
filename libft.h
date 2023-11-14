@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/11/13 22:39:48 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/14 21:51:05 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 # define INVALID_PID -1
 # define INVALID_FD -1
 # define INVALID_SIZE -1
+
+# define ERRLOC "Allocation Error"
 
 typedef unsigned char		t_byte;
 typedef unsigned int		t_uint;
@@ -96,6 +98,7 @@ t_bool		ft_isspace(int c);
 int			ft_toupper(int c);
 int			ft_tolower(int c);
 
+void		*ft_realloc(void *ptr, size_t oldsize, size_t newsize);
 void		ft_bzero(void *s, size_t n);
 void		*ft_memdup(const void *src, size_t n);
 void		*ft_memset(void *s, int c, size_t n);
@@ -107,7 +110,7 @@ void		*ft_memchrset(void const *s, void const *set,
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
 
 void		*ft_buf_write(t_buf dst, t_buf src, size_t offset);
-void		*ft_realloc(void *ptr, size_t oldsize, size_t newsize);
+void		ft_buf_free(t_buf *buf);
 
 size_t		ft_strlen(const char *s);
 size_t		ft_strlcpy(char *dst, const char *src, size_t size);
@@ -169,6 +172,7 @@ t_list		*ft_lstnew(void *content);
 void		ft_lstadd_front(t_list **lst, t_list *mew);
 int			ft_lstsize(t_list *lst);
 t_list		*ft_lstlast(t_list *lst);
+t_list		*ft_lstget(t_list *lst, t_uint index);
 void		ft_lstadd_back(t_list **lst, t_list *mew);
 void		ft_lstdelone(t_list *lst, void (*del)(void *));
 void		ft_lstclear(t_list **lst, void (*del)(void *));

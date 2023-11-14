@@ -2,12 +2,14 @@ NAME 		= libft.a
 CC 			= cc
 CFLAGS 		+= -Wall -Wextra -Werror
 SRC 		= bst/ft_bstchr.c\
+			  bst/ft_bstclear.c\
 			  bst/ft_bstiter_infix.c\
 			  bst/ft_bstiter_prefix.c\
 			  bst/ft_bstiter_suffix.c\
 			  bst/ft_bstlevel_count.c\
 			  bst/ft_bstnew.c\
 			  bst/ft_bstpush.c\
+			  buf/ft_buf_free.c\
 			  buf/ft_buf_write.c\
 			  convert/ft_atof.c\
 			  convert/ft_atoi.c\
@@ -27,6 +29,7 @@ SRC 		= bst/ft_bstchr.c\
 			  lst/ft_lstadd_front.c\
 			  lst/ft_lstclear.c\
 			  lst/ft_lstdelone.c\
+			  lst/ft_lstget.c\
 			  lst/ft_lstiter.c\
 			  lst/ft_lstlast.c\
 			  lst/ft_lstmap.c\
@@ -86,8 +89,8 @@ SRC 		= bst/ft_bstchr.c\
 			  utils/ft_get_envp.c\
 			  utils/ft_max.c\
 			  utils/ft_min.c\
-			  utils/random.c\
-			  utils/ft_swap.c
+			  utils/ft_swap.c\
+			  utils/random.c
 
 OBJ 		= $(SRC:.c=.o)
 
