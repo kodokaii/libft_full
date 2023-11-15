@@ -9,7 +9,9 @@ SRC 		= bst/ft_bstchr.c\
 			  bst/ft_bstlevel_count.c\
 			  bst/ft_bstnew.c\
 			  bst/ft_bstpush.c\
+			  buf/ft_buf_alloc.c\
 			  buf/ft_buf_free.c\
+			  buf/ft_buf_realloc.c\
 			  buf/ft_buf_write.c\
 			  convert/ft_atof.c\
 			  convert/ft_atoi.c\
@@ -35,6 +37,8 @@ SRC 		= bst/ft_bstchr.c\
 			  lst/ft_lstmap.c\
 			  lst/ft_lstnew.c\
 			  lst/ft_lstsize.c\
+			  lst/ft_lstsort.c\
+			  lst/ft_lstsort_merge.c\
 			  math/ft_exp.c\
 			  mem/ft_bzero.c\
 			  mem/ft_calloc.c\
@@ -58,6 +62,7 @@ SRC 		= bst/ft_bstchr.c\
 			  printf/ft_printf.c\
 			  put/ft_putchar_fd.c\
 			  put/ft_putendl_fd.c\
+			  put/ft_putlst_fd.c\
 			  put/ft_putnbr_base_fd.c\
 			  put/ft_putnbr_fd.c\
 			  put/ft_putstr_fd.c\

@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/11/14 21:51:05 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/15 17:46:03 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,10 @@ void		*ft_memchrset(void const *s, void const *set,
 				size_t size_s, size_t size_set);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
 
-void		*ft_buf_write(t_buf dst, t_buf src, size_t offset);
+void		*ft_buf_alloc(t_buf *buf, size_t offset, size_t size);
+void		ft_buf_realloc(t_buf *buf, size_t new_size);
 void		ft_buf_free(t_buf *buf);
+void		*ft_buf_write(t_buf *dst, t_buf *src, size_t offset);
 
 size_t		ft_strlen(const char *s);
 size_t		ft_strlcpy(char *dst, const char *src, size_t size);
@@ -170,24 +172,25 @@ int			ft_pipex(int in, char *const *cmd, char *const *envp, int out);
 
 t_list		*ft_lstnew(void *content);
 void		ft_lstadd_front(t_list **lst, t_list *mew);
-int			ft_lstsize(t_list *lst);
+t_uint		ft_lstsize(t_list *lst);
 t_list		*ft_lstlast(t_list *lst);
 t_list		*ft_lstget(t_list *lst, t_uint index);
+void		ft_putlst_fd(t_list *root, void (*put)(), int fd);
 void		ft_lstadd_back(t_list **lst, t_list *mew);
-void		ft_lstdelone(t_list *lst, void (*del)(void *));
-void		ft_lstclear(t_list **lst, void (*del)(void *));
-void		ft_lstiter(t_list *lst, void (*f)(void *));
-t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+void		ft_lstdelone(t_list *lst, void (*del)());
+void		ft_lstclear(t_list **lst, void (*del)());
+void		ft_lstiter(t_list *lst, void (*f)());
+void		ft_lstsort(t_list **root, int (*cmp)());
+void		ft_lstsort_merge(t_list **root, t_list *list, int (*cmp)());
+t_list		*ft_lstmap(t_list *lst, void *(*f)(), void (*del)());
 
 t_bst		*ft_bstnew(void *content);
-t_bst		*ft_bstpush(t_bst **root, void *content,
-				int (*cmpf)(void *, void *));
-void		ft_bstclear(t_bst **root, void (*del)(void *));
-void		ft_bstiter_prefix(t_bst *root, void (*f)(void *));
-void		ft_bstiter_suffix(t_bst *root, void (*f)(void *));
-void		ft_bstiter_infix(t_bst *root, void (*f)(void *));
-void		*ft_bstchr(t_bst *root, void *data_ref,
-				int (*cmpf)(void *, void *));
+t_bst		*ft_bstpush(t_bst **root, void *content, int (*cmp)());
+void		ft_bstclear(t_bst **root, void (*del)());
+void		ft_bstiter_prefix(t_bst *root, void (*f)());
+void		ft_bstiter_suffix(t_bst *root, void (*f)());
+void		ft_bstiter_infix(t_bst *root, void (*f)());
+void		*ft_bstchr(t_bst *root, void *data_ref, int (*cmp)());
 int			ft_bstlevel_count(t_bst *root);
 
 #endif 

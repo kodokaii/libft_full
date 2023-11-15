@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bstclear.c                                      :+:      :+:    :+:   */
+/*   ft_buf_alloc.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
+/*   By: nlaerema <nlaerema@student->42lehavre->fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/15 16:38:19 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/14 22:36:40 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_bstclear(t_bst **root, void (*del)())
+void	*ft_buf_alloc(t_buf *buf, size_t offset, size_t size)
 {
-	if (*root)
-	{
-		ft_bstclear(&(*root)->left, del);
-		ft_bstclear(&(*root)->right, del);
-		if (del)
-			(*del)((*root)->content);
-		free(root);
-	}
+	if (buf->size == INVALID_SIZE)
+		return (NULL);
+	if ((size_t)buf->size < offset + size)
+		ft_buf_realloc(buf, offset + size);
+	if (buf->size == INVALID_SIZE)
+		return (NULL);
+	return (buf->buf + offset);
 }

@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstsort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/15 16:38:19 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/15 18:07:44 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_bstclear(t_bst **root, void (*del)())
+static void	ft_merge_sort(t_list **list, t_uint list_size, int (*cmp)())
 {
-	if (*root)
+	t_list	*mid;
+
+	ft_lstget(*list, list_size - 1)->next = NULL;
+	if (2 <= list_size)
 	{
-		ft_bstclear(&(*root)->left, del);
-		ft_bstclear(&(*root)->right, del);
-		if (del)
-			(*del)((*root)->content);
-		free(root);
+		mid = ft_lstget(*list, list_size / 2);
+		ft_merge_sort(&mid, (list_size + 1) / 2, cmp);
+		ft_merge_sort(list, list_size / 2, cmp);
+		ft_lstsort_merge(list, mid, cmp);
 	}
+}
+
+void	ft_lstsort(t_list **root, int (*cmp)())
+{
+	ft_merge_sort(root, ft_lstsize(*root), cmp);
 }

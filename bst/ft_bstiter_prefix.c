@@ -6,13 +6,13 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 12:05:07 by kodokai           #+#    #+#             */
-/*   Updated: 2023/11/13 02:10:25 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/15 16:38:39 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_bstiter_prefix(t_bst *root, void (*f)(void *))
+void	ft_bstiter_prefix(t_bst *root, void (*f)())
 {
 	(*f)(root->content);
 	if (root->left)

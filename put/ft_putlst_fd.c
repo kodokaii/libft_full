@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bstclear.c                                      :+:      :+:    :+:   */
+/*   ft_putlst_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/15 16:38:19 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/15 17:44:50 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_bstclear(t_bst **root, void (*del)())
+void	ft_putlst_fd(t_list *root, void (*put)(), int fd)
 {
-	if (*root)
+	while (root)
 	{
-		ft_bstclear(&(*root)->left, del);
-		ft_bstclear(&(*root)->right, del);
-		if (del)
-			(*del)((*root)->content);
-		free(root);
+		put(root->content, fd);
+		root = root->next;
+		if (root)
+			ft_putstr_fd(" -> ", fd);
 	}
 }

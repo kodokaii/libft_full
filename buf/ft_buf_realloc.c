@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bstclear.c                                      :+:      :+:    :+:   */
+/*   ft_buf_realloc.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/15 16:38:19 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/14 22:34:32 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_bstclear(t_bst **root, void (*del)())
+void	ft_buf_realloc(t_buf *buf, size_t new_size)
 {
-	if (*root)
+	if (buf->size != INVALID_SIZE)
 	{
-		ft_bstclear(&(*root)->left, del);
-		ft_bstclear(&(*root)->right, del);
-		if (del)
-			(*del)((*root)->content);
-		free(root);
+		new_size = ft_max_size(buf->size * 2, new_size);
+		buf->buf = ft_realloc(buf->buf, buf->size, new_size);
+		buf->size = new_size;
+		if (!buf->buf)
+			buf->size = INVALID_SIZE;
 	}
 }

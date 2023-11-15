@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstsort_merge.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/15 16:38:19 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/15 19:45:23 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_bstclear(t_bst **root, void (*del)())
+void	ft_lstsort_merge(t_list **root, t_list *list, int (*cmp)())
 {
-	if (*root)
+	t_list	**current;
+	t_list	*buf;
+
+	current = root;
+	while (list)
 	{
-		ft_bstclear(&(*root)->left, del);
-		ft_bstclear(&(*root)->right, del);
-		if (del)
-			(*del)((*root)->content);
-		free(root);
+		if (!*current || 0 < cmp((*current)->content, list->content))
+		{
+			buf = list->next;
+			ft_lstadd_front(current, list);
+			list = buf;
+		}
+		current = &(*current)->next;
 	}
 }
