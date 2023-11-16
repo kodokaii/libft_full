@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bstiter_suffix.c                                :+:      :+:    :+:   */
+/*   ft_lstchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
+/*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/08 12:05:07 by kodokai           #+#    #+#             */
-/*   Updated: 2023/11/15 21:39:29 by nlaerema         ###   ########.fr       */
+/*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
+/*   Updated: 2023/11/15 22:34:54 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_bstiter_suffix(t_bst *root, void (*f)(void *))
+t_list	*ft_lstchr(t_list *root, void *content, int (*cmp)())
 {
-	if (root->left)
-		ft_bstiter_suffix(root->left, f);
-	if (root->right)
-		ft_bstiter_suffix(root->right, f);
-	f(root->content);
+	while (root && cmp(root->content, content))
+		root = root->next;
+	return (root);
 }

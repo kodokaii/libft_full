@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/15 16:37:14 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/15 21:40:37 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 void	ft_lstdelone(t_list *lst, void (*del)())
 {
 	if (del)
-		(*del)(lst->content);
+		del(lst->content);
 	free(lst);
 }

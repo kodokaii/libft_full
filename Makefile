@@ -29,6 +29,7 @@ SRC 		= bst/ft_bstchr.c\
 			  is/ft_isspace.c\
 			  lst/ft_lstadd_back.c\
 			  lst/ft_lstadd_front.c\
+			  lst/ft_lstchr.c\
 			  lst/ft_lstclear.c\
 			  lst/ft_lstdelone.c\
 			  lst/ft_lstget.c\
@@ -36,6 +37,7 @@ SRC 		= bst/ft_bstchr.c\
 			  lst/ft_lstlast.c\
 			  lst/ft_lstmap.c\
 			  lst/ft_lstnew.c\
+			  lst/ft_lstnext_roll.c\
 			  lst/ft_lstsize.c\
 			  lst/ft_lstsort.c\
 			  lst/ft_lstsort_merge.c\

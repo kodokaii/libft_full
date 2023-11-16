@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/11/15 17:46:03 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/15 22:35:25 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,6 +175,8 @@ void		ft_lstadd_front(t_list **lst, t_list *mew);
 t_uint		ft_lstsize(t_list *lst);
 t_list		*ft_lstlast(t_list *lst);
 t_list		*ft_lstget(t_list *lst, t_uint index);
+t_list		*ft_lstchr(t_list *root, void *content, int (*cmp)());
+void		ft_lstnext_roll(t_list **current, t_list *root);
 void		ft_putlst_fd(t_list *root, void (*put)(), int fd);
 void		ft_lstadd_back(t_list **lst, t_list *mew);
 void		ft_lstdelone(t_list *lst, void (*del)());
@@ -190,7 +192,7 @@ void		ft_bstclear(t_bst **root, void (*del)());
 void		ft_bstiter_prefix(t_bst *root, void (*f)());
 void		ft_bstiter_suffix(t_bst *root, void (*f)());
 void		ft_bstiter_infix(t_bst *root, void (*f)());
-void		*ft_bstchr(t_bst *root, void *data_ref, int (*cmp)());
+void		*ft_bstchr(t_bst *root, void *content, int (*cmp)());
 int			ft_bstlevel_count(t_bst *root);
 
 #endif 

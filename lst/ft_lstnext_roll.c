@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bstiter_suffix.c                                :+:      :+:    :+:   */
+/*   ft_lstnext_roll.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
+/*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/08 12:05:07 by kodokai           #+#    #+#             */
-/*   Updated: 2023/11/15 21:39:29 by nlaerema         ###   ########.fr       */
+/*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
+/*   Updated: 2023/11/15 21:29:34 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_bstiter_suffix(t_bst *root, void (*f)(void *))
+void	ft_lstnext_roll(t_list **current, t_list *root)
 {
-	if (root->left)
-		ft_bstiter_suffix(root->left, f);
-	if (root->right)
-		ft_bstiter_suffix(root->right, f);
-	f(root->content);
+	if (!*current || !(*current)->next)
+		*current = root;
+	else
+		*current = (*current)->next;
 }
