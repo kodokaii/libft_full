@@ -12,12 +12,12 @@
 
 #include "../libft.h"
 
-t_bst	*ft_bstnew(void *content)
+t_bst	*ft_bstnew(void *data)
 {
 	t_bst	*new;
 
 	new = malloc(sizeof(t_bst));
 	if (new)
-		new->content = content;
+		new->data = data;
 	return (new);
 }

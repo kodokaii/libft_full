@@ -20,7 +20,7 @@ void	ft_lstsort_merge(t_list **root, t_list *list, int (*cmp)())
 	current = root;
 	while (list)
 	{
-		if (!*current || 0 < cmp((*current)->content, list->content))
+		if (!*current || 0 < cmp((*current)->data, list->data))
 		{
 			buf = list->next;
 			ft_lstadd_front(current, list);

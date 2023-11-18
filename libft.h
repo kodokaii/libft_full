@@ -47,7 +47,7 @@ typedef struct s_buf
 
 typedef struct s_list
 {
-	void			*content;
+	void			*data;
 	struct s_list	*next;
 }					t_list;
 
@@ -55,7 +55,7 @@ typedef struct s_bst
 {
 	struct s_bst	*left;
 	struct s_bst	*right;
-	void			*content;
+	void			*data;
 }	t_bst;
 
 t_uint		ft_bytelen(t_byte n, t_byte base);
@@ -170,12 +170,12 @@ char		*ft_which(char const *cmd, char *const *envp);
 pid_t		ft_execve(int *in, char const *cmd, char *const *envp, int *out);
 int			ft_pipex(int in, char *const *cmd, char *const *envp, int out);
 
-t_list		*ft_lstnew(void *content);
+t_list		*ft_lstnew(void *data);
 void		ft_lstadd_front(t_list **lst, t_list *mew);
 t_uint		ft_lstsize(t_list *lst);
 t_list		*ft_lstlast(t_list *lst);
 t_list		*ft_lstget(t_list *lst, t_uint index);
-t_list		*ft_lstchr(t_list *root, void *content, int (*cmp)());
+t_list		*ft_lstchr(t_list *root, void *data, int (*cmp)());
 void		ft_lstnext_roll(t_list **current, t_list *root);
 void		ft_putlst_fd(t_list *root, void (*put)(), int fd);
 void		ft_lstadd_back(t_list **lst, t_list *mew);
@@ -186,13 +186,13 @@ void		ft_lstsort(t_list **root, int (*cmp)());
 void		ft_lstsort_merge(t_list **root, t_list *list, int (*cmp)());
 t_list		*ft_lstmap(t_list *lst, void *(*f)(), void (*del)());
 
-t_bst		*ft_bstnew(void *content);
-t_bst		*ft_bstpush(t_bst **root, void *content, int (*cmp)());
+t_bst		*ft_bstnew(void *data);
+t_bst		*ft_bstpush(t_bst **root, void *data, int (*cmp)());
 void		ft_bstclear(t_bst **root, void (*del)());
 void		ft_bstiter_prefix(t_bst *root, void (*f)());
 void		ft_bstiter_suffix(t_bst *root, void (*f)());
 void		ft_bstiter_infix(t_bst *root, void (*f)());
-void		*ft_bstchr(t_bst *root, void *content, int (*cmp)());
+void		*ft_bstchr(t_bst *root, void *data, int (*cmp)());
 int			ft_bstlevel_count(t_bst *root);
 
 #endif 

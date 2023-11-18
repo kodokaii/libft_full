@@ -12,11 +12,11 @@
 
 #include "../libft.h"
 
-t_bst	*ft_bstpush(t_bst **root, void *content, int (*cmp)())
+t_bst	*ft_bstpush(t_bst **root, void *data, int (*cmp)())
 {
 	if (!*root)
-		return (*root = ft_bstnew(content));
-	if (cmp(content, (*root)->content) <= 0)
-		return (ft_bstpush(&(*root)->left, content, cmp));
-	return (ft_bstpush(&(*root)->right, content, cmp));
+		return (*root = ft_bstnew(data));
+	if (cmp(data, (*root)->data) <= 0)
+		return (ft_bstpush(&(*root)->left, data, cmp));
+	return (ft_bstpush(&(*root)->right, data, cmp));
 }

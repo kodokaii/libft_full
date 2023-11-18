@@ -16,7 +16,7 @@ void	ft_putlst_fd(t_list *root, void (*put)(), int fd)
 {
 	while (root)
 	{
-		put(root->content, fd);
+		put(root->data, fd);
 		root = root->next;
 		if (root)
 			ft_putstr_fd(" -> ", fd);

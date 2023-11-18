@@ -14,7 +14,7 @@
 
 void	ft_bstiter_prefix(t_bst *root, void (*f)())
 {
-	f(root->content);
+	f(root->data);
 	if (root->left)
 		ft_bstiter_prefix(root->left, f);
 	if (root->right)

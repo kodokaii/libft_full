@@ -18,5 +18,5 @@ void	ft_bstiter_suffix(t_bst *root, void (*f)(void *))
 		ft_bstiter_suffix(root->left, f);
 	if (root->right)
 		ft_bstiter_suffix(root->right, f);
-	f(root->content);
+	f(root->data);
 }

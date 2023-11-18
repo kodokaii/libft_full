@@ -12,9 +12,9 @@
 
 #include "../libft.h"
 
-t_list	*ft_lstchr(t_list *root, void *content, int (*cmp)())
+t_list	*ft_lstchr(t_list *root, void *data, int (*cmp)())
 {
-	while (root && cmp(root->content, content))
+	while (root && cmp(root->data, data))
 		root = root->next;
 	return (root);
 }

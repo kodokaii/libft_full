@@ -19,7 +19,7 @@ void	ft_bstclear(t_bst **root, void (*del)())
 		ft_bstclear(&(*root)->left, del);
 		ft_bstclear(&(*root)->right, del);
 		if (del)
-			(*del)((*root)->content);
+			(*del)((*root)->data);
 		free(root);
 	}
 }

@@ -16,19 +16,19 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(), void (*del)())
 {
 	t_list	*root;
 	t_list	**current;
-	void	*content;
+	void	*data;
 
 	root = NULL;
 	current = &root;
 	while (lst)
 	{
-		content = f(lst->content);
-		*current = ft_lstnew(content);
+		data = f(lst->data);
+		*current = ft_lstnew(data);
 		if (!*current)
 		{
 			ft_lstclear(&root, del);
 			if (del)
-				del(content);
+				del(data);
 			return (NULL);
 		}
 		current = &(*current)->next;

@@ -16,7 +16,7 @@ void	ft_bstiter_infix(t_bst *root, void (*f)())
 {
 	if (root->left)
 		ft_bstiter_infix(root->left, f);
-	f(root->content);
+	f(root->data);
 	if (root->right)
 		ft_bstiter_infix(root->right, f);
 }
