@@ -33,6 +33,7 @@ SRC 		= bst/ft_bstchr.c\
 			  lst/ft_lstclear.c\
 			  lst/ft_lstdelone.c\
 			  lst/ft_lstget.c\
+			  lst/ft_lstis_sort.c\
 			  lst/ft_lstiter.c\
 			  lst/ft_lstlast.c\
 			  lst/ft_lstmap.c\
