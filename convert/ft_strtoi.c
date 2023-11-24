@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/10/21 00:46:40 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/24 12:48:55 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	ft_strtoi(const char *nptr, char **endptr)
 	{
 		res *= 10;
 		res += *nptr - '0';
+		if (INT_MIN < res && res < 0)
+			errno = ERANGE;
 		nptr++;
 	}
 	if (endptr)
