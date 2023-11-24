@@ -6,13 +6,13 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/06 22:01:05 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/24 15:57:34 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static t_printf_flags	ft_get_flags(char c)
+static t_printf_flags	_get_flags(char c)
 {
 	if (c == '+')
 		return (PRINTF_PLUS);
@@ -29,7 +29,7 @@ static t_printf_flags	ft_get_flags(char c)
 	return (PRINTF_FLAG_NONE);
 }
 
-static t_printf_specifier	ft_get_specifier(char c)
+static t_printf_specifier	_get_specifier(char c)
 {
 	if (c == 'c')
 		return (PRINTF_CHAR);
@@ -50,7 +50,7 @@ static t_printf_specifier	ft_get_specifier(char c)
 	return (PRINTF_SPECIFIER_NONE);
 }
 
-static t_printf_var	ft_get_var(t_printf_specifier specifier, va_list *arg_list)
+static t_printf_var	_get_var(t_printf_specifier specifier, va_list *arg_list)
 {
 	t_printf_var	var;
 
@@ -70,30 +70,30 @@ static t_printf_var	ft_get_var(t_printf_specifier specifier, va_list *arg_list)
 	return (var);
 }
 
-static void	ft_get_format(const char **str,
+static void	_get_format(const char **str,
 			va_list *arg_list, t_printf_format *format)
 {
 	char	*current;
 
 	current = (char *)*str + 1;
 	while (ft_strchr(PRINTF_FLAGS, *current) && *current)
-		format->flags |= ft_get_flags(*current++);
+		format->flags |= _get_flags(*current++);
 	if (*current == '*' && current++)
 		format->width = va_arg(*arg_list, int);
 	else if (ft_isdigit(*current))
 		format->width = ft_strtoi(current, &current);
 	if (*current == '.')
 	{
-		format->flags |= ft_get_flags(*current++);
+		format->flags |= _get_flags(*current++);
 		if (*current == '*' && current++)
 			format->precision = va_arg(*arg_list, int);
 		else if (ft_isdigit(*current))
 			format->precision = ft_strtoi(current, &current);
 	}
-	format->specifier = ft_get_specifier(*current);
+	format->specifier = _get_specifier(*current);
 	if (ft_strchr(PRINTF_SPECIFIER, *current) && *current)
 	{
-		format->var = ft_get_var(format->specifier, arg_list);
+		format->var = _get_var(format->specifier, arg_list);
 		*str = current;
 	}
 }
@@ -109,7 +109,7 @@ t_uint	ft_printf_parsing(const char *str, va_list *arg_list, int fd)
 		if (*str == '%')
 		{
 			ft_bzero(&format, sizeof(t_printf_format));
-			ft_get_format(&str, arg_list, &format);
+			_get_format(&str, arg_list, &format);
 			ft_printf_format(&format, fd);
 			len += format.total_len;
 		}

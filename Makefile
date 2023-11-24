@@ -18,6 +18,7 @@ SRC 		= bst/ft_bstchr.c\
 			  convert/ft_itoa.c\
 			  convert/ft_nblen.c\
 			  convert/ft_split.c\
+			  convert/ft_strtoi.c\
 			  convert/ft_word.c\
 			  gnl/ft_gnl.c\
 			  gnl/ft_read_line.c\
@@ -86,7 +87,6 @@ SRC 		= bst/ft_bstchr.c\
 			  str/ft_strnstr.c\
 			  str/ft_strpbrk.c\
 			  str/ft_strrchr.c\
-			  str/ft_strtoi.c\
 			  str/ft_strtrim.c\
 			  str/ft_substr.c\
 			  str/ft_tolower.c\

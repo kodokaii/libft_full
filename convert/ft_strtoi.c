@@ -6,36 +6,36 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/24 12:48:55 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/24 15:27:14 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int	ft_strtoi(const char *nptr, char **endptr)
+int	ft_strtoi(const char *str, char **endptr)
 {
-	int	res;
-	int	sign;
+	long	res;
+	int		sign;
 
 	res = 0;
-	while (('\t' <= *nptr && *nptr <= '\r') || *nptr == ' ')
-		nptr++;
+	while (('\t' <= *str && *str <= '\r') || *str == ' ')
+		str++;
 	sign = 1;
-	if (*nptr == '+' || *nptr == '-')
+	if (*str == '+' || *str == '-')
 	{
-		if (*nptr == '-')
+		if (*str == '-')
 			sign = -1;
-		nptr++;
+		str++;
 	}
-	while ('0' <= *nptr && *nptr <= '9')
+	while (ft_isdigit(*str))
 	{
 		res *= 10;
-		res += *nptr - '0';
-		if (INT_MIN < res && res < 0)
+		res += *str - '0';
+		if (res * sign < INT_MIN || INT_MAX < res * sign)
 			errno = ERANGE;
-		nptr++;
+		str++;
 	}
 	if (endptr)
-		*endptr = (char *)nptr;
+		*endptr = (char *)str;
 	return (res * sign);
 }

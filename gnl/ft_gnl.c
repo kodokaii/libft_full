@@ -12,7 +12,7 @@
 
 #include "ft_gnl.h"
 
-static t_buf	*buf_save(int fd_get, int fd_free)
+static t_buf	*_save(int fd_get, int fd_free)
 {
 	static t_buf	buf_save[FT_FD_MAX] = {};
 
@@ -34,7 +34,7 @@ t_buf	ft_gnl(int fd)
 
 	line.size = 0;
 	line.buf = NULL;
-	save = buf_save(fd, INVALID_FD);
+	save = _save(fd, INVALID_FD);
 	if (!save)
 		return ((t_buf){NULL, 0});
 	ft_read_line(fd, &line, save, save->size);
@@ -46,7 +46,7 @@ int	ft_close(int *fd)
 	int	res;
 
 	res = 0;
-	buf_save(INVALID_FD, *fd);
+	_save(INVALID_FD, *fd);
 	if (STDERR_FILENO < *fd)
 	{
 		res = close(*fd);

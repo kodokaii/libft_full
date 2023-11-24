@@ -12,7 +12,7 @@
 
 #include "ft_gnl.h"
 
-static void	update_len(t_buf *oldbuf, t_buf *line)
+static void	_update_len(t_buf *oldbuf, t_buf *line)
 {
 	ssize_t	len;
 
@@ -27,7 +27,7 @@ static void	update_len(t_buf *oldbuf, t_buf *line)
 	}
 }
 
-static void	line_allocation(t_buf *line, t_buf *buf, t_buf *oldbuf)
+static void	_line_allocation(t_buf *line, t_buf *buf, t_buf *oldbuf)
 {
 	if (line->size)
 		line->buf = malloc(line->size + 1);
@@ -52,7 +52,7 @@ void	ft_read_line(int fd, t_buf *line, t_buf *buf, ssize_t read_size)
 	t_buf	oldbuf;
 
 	oldbuf = *buf;
-	update_len(&oldbuf, line);
+	_update_len(&oldbuf, line);
 	if (oldbuf.size == read_size)
 	{
 		read_size = ft_max_ssize(read_size, FT_BUFFER_SIZE) * 2;
@@ -67,7 +67,7 @@ void	ft_read_line(int fd, t_buf *line, t_buf *buf, ssize_t read_size)
 		}
 	}
 	else if (oldbuf.buf)
-		line_allocation(line, buf, &oldbuf);
+		_line_allocation(line, buf, &oldbuf);
 	if (oldbuf.buf && line->buf)
 		line->buf = ft_memcpy(line->buf - oldbuf.size, oldbuf.buf, oldbuf.size);
 	free(oldbuf.buf);

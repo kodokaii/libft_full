@@ -12,7 +12,7 @@
 
 #include "../libft.h"
 
-static char	*join_cmd_path(const char *cmd, size_t cmd_len, const char **path)
+static char	*_join_cmd_path(const char *cmd, size_t cmd_len, const char **path)
 {
 	char	*cmd_path;
 	size_t	path_len;
@@ -30,7 +30,7 @@ static char	*join_cmd_path(const char *cmd, size_t cmd_len, const char **path)
 	return (cmd_path);
 }
 
-static char	*find_cmd_path(const char *cmd, const char *path)
+static char	*_find_cmd_path(const char *cmd, const char *path)
 {
 	size_t	cmd_len;
 	char	*cmd_path;
@@ -40,7 +40,7 @@ static char	*find_cmd_path(const char *cmd, const char *path)
 	while (*path)
 	{
 		path++;
-		cmd_path = join_cmd_path(cmd, cmd_len, &path);
+		cmd_path = _join_cmd_path(cmd, cmd_len, &path);
 		if (!cmd_path)
 			return (NULL);
 		if (access(cmd_path, X_OK) == 0)
@@ -68,7 +68,7 @@ char	*ft_which(const char *cmd, char *const *envp)
 			if (!path)
 				return (NULL);
 			path += 4;
-			cmd_path = find_cmd_path(cmd, path);
+			cmd_path = _find_cmd_path(cmd, path);
 		}
 	}
 	return (cmd_path);

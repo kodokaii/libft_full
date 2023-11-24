@@ -12,7 +12,7 @@
 
 #include "../libft.h"
 
-static char	**ft_split_free(char **split, size_t i)
+static char	**_free(char **split, size_t i)
 {
 	while (i--)
 		free(split[i]);
@@ -37,7 +37,7 @@ char	**ft_split(char const *s, char *sep)
 				s++;
 			split[i] = ft_strndup(s, ft_word_len(s, sep));
 			if (!split[i])
-				return (ft_split_free(split, i));
+				return (_free(split, i));
 			while (*s && !ft_strchr(sep, *s))
 				s++;
 			i++;

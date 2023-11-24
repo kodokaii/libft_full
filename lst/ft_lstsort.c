@@ -16,11 +16,11 @@ static void	ft_merge_sort(t_list **list, t_uint list_size, int (*cmp)())
 {
 	t_list	*mid;
 
-	ft_lstget(*list, list_size - 1)->next = NULL;
 	if (2 <= list_size)
 	{
 		mid = ft_lstget(*list, list_size / 2);
 		ft_merge_sort(&mid, (list_size + 1) / 2, cmp);
+		mid->next = NULL;
 		ft_merge_sort(list, list_size / 2, cmp);
 		ft_lstsort_merge(list, mid, cmp);
 	}
