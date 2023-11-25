@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/08 19:06:52 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/25 15:42:40 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,19 @@ static char	**_free(char **split, size_t i)
 		free(split[i]);
 	free(split);
 	return (NULL);
+}
+
+void	ft_split_free(char **split)
+{
+	size_t	i;
+
+	i = 0;
+	while (split && split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
 }
 
 char	**ft_split(char const *s, char *sep)

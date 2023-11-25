@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/11/23 22:15:38 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/25 15:42:18 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,7 @@ char		*ft_strpbrk(const char *s, const char *charset);
 size_t		ft_word_len(char const *str, char const *sep);
 size_t		ft_count_word(char const *str, char const *sep);
 char		**ft_split(char const *s, char *sep);
+void		ft_split_free(char **split);
 
 int			ft_atoi(const char *str);
 double		ft_atof(const char *str);
@@ -157,6 +158,7 @@ void		ft_putllu_base_fd(t_llu n, char *base, int fd);
 int			ft_printf(const char *str, ...);
 int			ft_dprintf(int fd, const char *str, ...);
 
+int			ft_split_argv(int *argc, char ***argv);
 char		**ft_argv(char **init_argv);
 
 char		*ft_basename(char const *s);
