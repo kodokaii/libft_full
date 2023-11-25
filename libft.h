@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/11/25 15:42:18 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/25 17:46:14 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdio.h>
 # include <string.h>
 # include <limits.h>
-# include <float.h>
 # include <errno.h>
 # include <fcntl.h>
 # include <sys/types.h>
