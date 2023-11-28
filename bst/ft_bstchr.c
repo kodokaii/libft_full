@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bstchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
+/*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/08 12:05:07 by kodokai           #+#    #+#             */
-/*   Updated: 2023/11/15 21:39:03 by nlaerema         ###   ########.fr       */
+/*   Created: 2023/02/08 12:05:07 by nlaerema          #+#    #+#             */
+/*   Updated: 2023/11/25 17:57:18 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

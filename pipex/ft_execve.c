@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/24 15:56:56 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/28 23:38:08 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ static void	_cmd(t_pipe *pipefd, t_exec *exec, char const *cmd)
 	if (dup2(pipefd->in[0], STDIN_FILENO) == INVALID_FD)
 		_error(pipefd, exec, cmd, EXCV_FORK_ERROR);
 	if (dup2(pipefd->out[1], STDOUT_FILENO) == INVALID_FD)
+		_error(pipefd, exec, cmd, EXCV_FORK_ERROR);
+	if (ft_close(&pipefd->in[0]) || ft_close(&pipefd->out[1]))
 		_error(pipefd, exec, cmd, EXCV_FORK_ERROR);
 	execve(exec->cmd_path, exec->argv, exec->envp);
 	_error(pipefd, exec, cmd, EXCV_FORK_ERROR);

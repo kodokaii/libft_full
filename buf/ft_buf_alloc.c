@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_buf_alloc.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlaerema <nlaerema@student->42lehavre->fr>	+#+  +:+       +#+        */
+/*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/14 22:36:40 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/25 18:01:35 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

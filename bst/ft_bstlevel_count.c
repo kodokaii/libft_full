@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bstlevel_count.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
+/*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/08 13:57:53 by kodokai           #+#    #+#             */
-/*   Updated: 2023/11/13 02:11:31 by nlaerema         ###   ########.fr       */
+/*   Created: 2023/11/25 17:58:26 by nlaerema          #+#    #+#             */
+/*   Updated: 2023/11/25 17:58:52 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

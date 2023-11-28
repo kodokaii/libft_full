@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/11/25 17:46:14 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/28 17:14:46 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,15 @@
 # define INVALID_PID -1
 # define INVALID_FD -1
 # define INVALID_SIZE -1
+
+# define COLOR_RESET	"\x1B[0m"
+# define COLOR_RED		"\x1B[31m"
+# define COLOR_GREEN	"\x1B[32m"
+# define COLOR_YELLOW	"\x1B[33m"
+# define COLOR_BLUE		"\x1B[34m"
+# define COLOR_MAGENTA	"\x1B[35m"
+# define COLOR_CYAN		"\x1B[36m"
+# define COLOR_WHITE	"\x1B[37m"
 
 # define ERRLOC "Allocation Error"
 
