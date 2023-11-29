@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/11/28 17:14:46 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/30 00:09:56 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define INVALID_FD -1
 # define INVALID_SIZE -1
 
+# define TERM_CLEAR		"\e[H\e[2J\e[3J"
 # define COLOR_RESET	"\x1B[0m"
 # define COLOR_RED		"\x1B[31m"
 # define COLOR_GREEN	"\x1B[32m"
