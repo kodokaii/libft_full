@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/29 02:07:15 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/29 02:23:16 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ static void	_free(t_exec *exec)
 pid_t	_error(t_pipe *pipefd, t_exec *exec,
 			char const *cmd, t_execve_error error)
 {
-	_free(exec);
+	if (exec)
+		_free(exec);
 	if (pipefd)
 	{
 		ft_close(&pipefd->in[0]);
@@ -98,15 +99,16 @@ pid_t	ft_execve(int *in, char const *cmd, char *const *envp, int *out)
 	pid_t	pid;
 
 	exec.cmd_path = NULL;
+	exec.argv = NULL;
 	exec.envp = (char **)envp;
-	exec.argv = ft_split(cmd, "\t ");
-	if (!exec.argv)
-		return (_error(NULL, &exec, cmd, EXCV_OTHER_ERROR));
-	exec.cmd_path = ft_which(exec.argv[0], envp);
-	if (!exec.cmd_path)
-		return (_error(NULL, &exec, cmd, EXCV_CMD_ERROR));
 	if (_init_pipe(in, &pipefd, out))
 		return (_error(&pipefd, &exec, cmd, EXCV_OTHER_ERROR));
+	exec.argv = ft_split(cmd, "\t ");
+	if (!exec.argv)
+		return (_error(&pipefd, &exec, cmd, EXCV_OTHER_ERROR));
+	exec.cmd_path = ft_which(exec.argv[0], envp);
+	if (!exec.cmd_path)
+		return (_error(&pipefd, &exec, cmd, EXCV_CMD_ERROR));
 	pid = fork();
 	if (pid == 0)
 		_cmd(&pipefd, &exec, cmd);
