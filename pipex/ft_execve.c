@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/28 23:38:08 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/29 02:07:15 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ pid_t	_error(t_pipe *pipefd, t_exec *exec,
 	if (pipefd)
 	{
 		ft_close(&pipefd->in[0]);
-		ft_close(&pipefd->in[1]);
-		ft_close(&pipefd->out[0]);
 		ft_close(&pipefd->out[1]);
 	}
 	if (error == EXCV_CMD_ERROR)
@@ -48,7 +46,7 @@ pid_t	_error(t_pipe *pipefd, t_exec *exec,
 	if (error == EXCV_FORK_ERROR || error == EXCV_OTHER_ERROR)
 		perror(ft_basename(ft_argv(NULL)[0]));
 	if (error == EXCV_FORK_ERROR)
-		exit(1);
+		exit(errno);
 	return (INVALID_PID);
 }
 
