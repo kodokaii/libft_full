@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/28 16:03:41 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/29 15:59:35 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	ft_lstsort_merge(t_list **root, t_list *list, int (*cmp)())
 			ft_lstadd_front(current, list);
 			list = buf;
 		}
-		if (*current)
-			current = &(*current)->next;
+		current = &(*current)->next;
 	}
 }
