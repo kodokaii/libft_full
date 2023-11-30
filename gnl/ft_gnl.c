@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/13 00:59:52 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/30 22:21:26 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 static t_buf	*_save(int fd_get, int fd_free)
 {
-	static t_buf	buf_save[FT_FD_MAX] = {};
+	static t_buf	buf_save[FD_MAX] = {};
 
-	if (0 <= fd_free && fd_free < FT_FD_MAX)
+	if (0 <= fd_free && fd_free < FD_MAX)
 	{
 		free(buf_save[fd_free].buf);
 		buf_save[fd_free].buf = NULL;
 		buf_save[fd_free].buf = 0;
 	}
-	if (0 <= fd_get && fd_get < FT_FD_MAX)
+	if (0 <= fd_get && fd_get < FD_MAX)
 		return (buf_save + fd_get);
 	return (NULL);
 }

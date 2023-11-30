@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/13 01:25:19 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/30 22:22:08 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_read_line(int fd, t_buf *line, t_buf *buf, ssize_t read_size)
 	_update_len(&oldbuf, line);
 	if (oldbuf.size == read_size)
 	{
-		read_size = ft_max_ssize(read_size, FT_BUFFER_SIZE) * 2;
+		read_size = ft_max_ssize(read_size, BUFFER_SIZE) * 2;
 		buf->buf = malloc(read_size);
 		if (buf->buf)
 		{

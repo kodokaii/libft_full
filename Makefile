@@ -46,6 +46,7 @@ SRC 		= bst/ft_bstchr.c\
 			  math/ft_exp.c\
 			  mem/ft_bzero.c\
 			  mem/ft_calloc.c\
+			  mem/ft_malloc.c\
 			  mem/ft_memchr.c\
 			  mem/ft_memchrset.c\
 			  mem/ft_memcmp.c\
@@ -99,7 +100,6 @@ SRC 		= bst/ft_bstchr.c\
 			  utils/ft_min.c\
 			  utils/ft_swap.c\
 			  utils/random.c
-
 OBJ 		= $(SRC:.c=.o)
 
 all: $(NAME)

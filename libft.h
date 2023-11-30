@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/11/30 00:09:56 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/30 22:50:43 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@
 # define INVALID_PID -1
 # define INVALID_FD -1
 # define INVALID_SIZE -1
+
+# define BUFFER_SIZE 0x10000
+# define FD_MAX 1024
 
 # define TERM_CLEAR		"\e[H\e[2J\e[3J"
 # define COLOR_RESET	"\x1B[0m"
@@ -49,12 +52,6 @@ typedef enum e_bool
 	FT_TRUE		= 1
 }	t_bool;
 
-typedef struct s_buf
-{
-	void	*buf;
-	ssize_t	size;
-}	t_buf;
-
 typedef struct s_list
 {
 	void			*data;
@@ -67,6 +64,19 @@ typedef struct s_bst
 	struct s_bst	*right;
 	void			*data;
 }	t_bst;
+
+typedef struct s_buf
+{
+	void	*buf;
+	ssize_t	size;
+}	t_buf;
+
+typedef struct s_alloc
+{
+	t_list	*memory;
+	t_list	*current;
+	size_t	free_size;
+}	t_alloc;
 
 t_uint		ft_bytelen(t_byte n, t_byte base);
 t_uint		ft_intlen(int n, int base);
@@ -118,6 +128,10 @@ void		*ft_memchr(const void *s, int c, size_t n);
 void		*ft_memchrset(void const *s, void const *set,
 				size_t size_s, size_t size_set);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
+
+void		ft_reset(t_alloc *alloc);
+void		ft_free(t_alloc *alloc);
+void		*ft_malloc(t_alloc *alloc, size_t size);
 
 void		*ft_buf_alloc(t_buf *buf, size_t offset, size_t size);
 void		ft_buf_realloc(t_buf *buf, size_t new_size);
