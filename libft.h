@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/11/30 22:50:43 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/11/30 23:07:54 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,6 +197,7 @@ pid_t		ft_execve(int *in, char const *cmd, char *const *envp, int *out);
 int			ft_pipex(int in, char *const *cmd, char *const *envp, int out);
 
 t_list		*ft_lstnew(void *data);
+t_list		*ft_lstnew_alloc(t_alloc *alloc, void *data);
 void		ft_lstadd_front(t_list **lst, t_list *mew);
 t_uint		ft_lstsize(t_list *lst);
 t_list		*ft_lstlast(t_list *lst);
