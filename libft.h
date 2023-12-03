@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/12/04 00:32:43 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/12/04 00:36:54 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,8 @@ t_bool		ft_isspace(int c);
 
 int			ft_toupper(int c);
 int			ft_tolower(int c);
+
+int			ft_errloc(void);
 
 void		*ft_realloc(void *ptr, size_t oldsize, size_t newsize);
 void		ft_bzero(void *s, size_t n);

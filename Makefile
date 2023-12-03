@@ -97,6 +97,7 @@ SRC 		= bst/ft_bstchr.c\
 			  utils/ft_abs.c\
 			  utils/ft_argv.c\
 			  utils/ft_basename.c\
+			  utils/ft_errloc.c\
 			  utils/ft_get_envp.c\
 			  utils/ft_max.c\
 			  utils/ft_min.c\
