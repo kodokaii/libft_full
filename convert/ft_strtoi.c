@@ -6,21 +6,21 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/12/07 03:18:51 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/12/07 03:22:48 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-static int	_get_nb(const char *str, int sign)
+static int	_get_nb(const char **str, int sign)
 {
 	long	res;
 
 	res = 0;
-	while (ft_isdigit(*str))
+	while (ft_isdigit(**str))
 	{
 		res *= 10;
-		res += *str - '0';
+		res += **str - '0';
 		if (res * sign < INT_MIN || INT_MAX < res * sign)
 		{
 			errno = ERANGE;
@@ -28,9 +28,9 @@ static int	_get_nb(const char *str, int sign)
 				return (INT_MIN);
 			return (INT_MAX);
 		}
-		str++;
+		(*str)++;
 	}
-	return (res);
+	return (res * sign);
 }
 
 int	ft_strtoi(const char *str, char **endptr)
@@ -51,8 +51,8 @@ int	ft_strtoi(const char *str, char **endptr)
 	}
 	if (!ft_isdigit(*str))
 		return (0);
-	res = _get_nb(str, sign);
+	res = _get_nb(&str, sign);
 	if (endptr)
 		*endptr = (char *)str;
-	return (res * sign);
+	return (res);
 }
