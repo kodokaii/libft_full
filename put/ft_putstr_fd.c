@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/10/29 23:14:31 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/12/07 05:33:59 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 void	ft_putstr_fd(const char *s, int fd)
 {
-	while (*s)
-		write(fd, s++, 1);
+	write(fd, s, ft_strlen(s));
 }
