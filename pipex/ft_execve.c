@@ -6,28 +6,16 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/12/07 16:12:58 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:27:20 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_pipex.h"
 
-static void	_free(t_exec *exec)
-{
-	size_t	i;
-
-	i = 0;
-	if (exec->cmd_path)
-	{
-		free(exec->cmd_path);
-		exec->cmd_path = NULL;
-	}
-}
-
 static pid_t	_error(t_pipe *pipefd, t_exec *exec, t_execve_error error)
 {
-	if (exec)
-		_free(exec);
+	if (exec->cmd_path)
+		free(exec->cmd_path);
 	if (pipefd)
 	{
 		ft_close(&pipefd->in[0]);
@@ -35,7 +23,7 @@ static pid_t	_error(t_pipe *pipefd, t_exec *exec, t_execve_error error)
 	}
 	if (error == EXCV_CMD_ERROR)
 		ft_dprintf(STDERR_FILENO, "%s: command not found: %s\n",
-			ft_basename(ft_argv(NULL)[0]), exec->argv);
+			ft_basename(ft_argv(NULL)[0]), (exec->argv)[0]);
 	if (error == EXCV_FORK_ERROR || error == EXCV_OTHER_ERROR)
 		perror(ft_basename(ft_argv(NULL)[0]));
 	if (error == EXCV_FORK_ERROR)
@@ -103,7 +91,7 @@ pid_t	ft_execve(int *in, char **cmd, char **envp, int *out)
 		_cmd(&pipefd, &exec);
 	if (pid == INVALID_PID)
 		return (_error(&pipefd, &exec, EXCV_OTHER_ERROR));
-	_free(&exec);
+	free(exec.cmd_path);
 	if (ft_close(&pipefd.in[0]) || ft_close(&pipefd.out[1]))
 		return (_error(&pipefd, &exec, EXCV_OTHER_ERROR));
 	return (pid);

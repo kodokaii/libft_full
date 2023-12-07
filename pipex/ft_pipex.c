@@ -6,7 +6,7 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/12/07 18:22:22 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:27:34 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_pipex(int in, char **cmd_tab, char **envp, int out)
 		else if (cmd)
 			ft_execve(&in, cmd, envp, &out);
 		wait(&status);
-		free(cmd);
+		ft_split_free(cmd);
 		return (WEXITSTATUS(status));
 	}
 	return (EXIT_SUCCESS);
