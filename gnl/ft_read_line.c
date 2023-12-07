@@ -6,13 +6,13 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/30 22:22:08 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/12/07 05:18:54 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_gnl.h"
 
-static void	_update_len(t_buf *oldbuf, t_buf *line)
+static ssize_t	_update_len(t_buf *oldbuf, t_buf *line)
 {
 	ssize_t	len;
 
@@ -25,6 +25,7 @@ static void	_update_len(t_buf *oldbuf, t_buf *line)
 			oldbuf->size = len + 1;
 		line->size += oldbuf->size;
 	}
+	return (len);
 }
 
 static void	_line_allocation(t_buf *line, t_buf *buf, t_buf *oldbuf)
@@ -52,10 +53,9 @@ void	ft_read_line(int fd, t_buf *line, t_buf *buf, ssize_t read_size)
 	t_buf	oldbuf;
 
 	oldbuf = *buf;
-	_update_len(&oldbuf, line);
-	if (oldbuf.size == read_size)
+	if (_update_len(&oldbuf, line) == read_size)
 	{
-		read_size = ft_max_ssize(read_size, BUFFER_SIZE) * 2;
+		read_size = ft_max_ssize(read_size * 2, BUFFER_SIZE);
 		buf->buf = malloc(read_size);
 		if (buf->buf)
 		{
