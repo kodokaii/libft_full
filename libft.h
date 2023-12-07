@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/12/05 19:59:52 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/12/07 18:29:19 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,8 +196,8 @@ int			ft_close(int *fd);
 int			ft_get_heredoc(char const *limiter);
 char		*ft_which(char const *cmd, char *const *envp);
 
-pid_t		ft_execve(int *in, char const *cmd, char *const *envp, int *out);
-int			ft_pipex(int in, char *const *cmd, char *const *envp, int out);
+pid_t		ft_execve(int *in, char **cmd, char **envp, int *out);
+int			ft_pipex(int in, char **cmd, char **envp, int out);
 
 t_list		*ft_lstnew(void *data);
 t_list		*ft_lstnew_alloc(t_alloc *alloc, void *data);

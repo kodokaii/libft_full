@@ -6,28 +6,31 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/29 02:12:07 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/12/07 18:22:22 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_pipex.h"
 
-int	ft_pipex(int in, char *const *cmd, char *const *envp, int out)
+int	ft_pipex(int in, char **cmd_tab, char **envp, int out)
 {
-	int	cmd_out;
-	int	status;
+	char	**cmd;
+	int		cmd_out;
+	int		status;
 
-	if (cmd[0])
+	if (cmd_tab[0])
 	{
-		if (cmd[1])
+		cmd = ft_split(cmd_tab[0], " \t");
+		if (cmd && cmd_tab[1])
 		{
 			cmd_out = INVALID_FD;
-			ft_execve(&in, cmd[0], envp, &cmd_out);
-			ft_pipex(cmd_out, cmd + 1, envp, out);
+			ft_execve(&in, cmd, envp, &cmd_out);
+			ft_pipex(cmd_out, cmd_tab + 1, envp, out);
 		}
-		else
-			ft_execve(&in, cmd[0], envp, &out);
+		else if (cmd)
+			ft_execve(&in, cmd, envp, &out);
 		wait(&status);
+		free(cmd);
 		return (WEXITSTATUS(status));
 	}
 	return (EXIT_SUCCESS);
