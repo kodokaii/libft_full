@@ -78,6 +78,7 @@ SRC 		= bst/ft_bstchr.c\
 			  shell/ft_which.c\
 			  str/ft_strchr.c\
 			  str/ft_strcmp.c\
+			  str/ft_strcpy.c\
 			  str/ft_strdup.c\
 			  str/ft_striteri.c\
 			  str/ft_strjoin.c\
