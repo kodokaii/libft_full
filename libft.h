@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/12/10 22:33:02 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/12/11 12:40:28 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -211,6 +211,7 @@ void		ft_lstnext_roll(t_list **current, t_list *root);
 void		ft_putlst_fd(t_list *root, void (*put)(), int fd);
 void		ft_lstadd_back(t_list **lst, t_list *mew);
 void		ft_lstdelone(t_list *lst, void (*del)());
+void		ft_lstremove(t_list **lst, void (*del)());
 void		ft_lstclear(t_list **lst, void (*del)());
 void		ft_lstiter(t_list *lst, void (*f)());
 void		ft_lstiter_inv(t_list *lst, void (*f)());
