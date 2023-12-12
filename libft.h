@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/12/11 20:56:41 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/12/12 17:44:26 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,7 @@ int			ft_memcmp(const void *s1, const void *s2, size_t n);
 void		ft_reset(t_alloc *alloc);
 void		ft_free(t_alloc *alloc);
 void		*ft_malloc(t_alloc *alloc, size_t size);
-void		init_alloc(t_alloc *alloc, size_t buffer_size);
+void		ft_alloc_init(t_alloc *alloc, size_t buffer_size);
 
 void		*ft_buf_alloc(t_buf *buf, size_t offset, size_t size);
 void		ft_buf_realloc(t_buf *buf, size_t new_size);
