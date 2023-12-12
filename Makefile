@@ -1,13 +1,7 @@
 NAME 		= libft.a
 CC 			= cc
 CFLAGS 		+= -Wall -Wextra -Werror
-SRC 		= alloc/ft_alloc_init.c\
-			  alloc/ft_calloc.c\
-			  alloc/ft_free.c\
-			  alloc/ft_malloc.c\
-			  alloc/ft_realloc.c\
-			  alloc/ft_reset.c\
-			  bst/ft_bstchr.c\
+SRC 		= bst/ft_bstchr.c\
 			  bst/ft_bstclear.c\
 			  bst/ft_bstiter_infix.c\
 			  bst/ft_bstiter_prefix.c\
@@ -31,7 +25,6 @@ SRC 		= alloc/ft_alloc_init.c\
 			  is/ft_isalnum.c\
 			  is/ft_isalpha.c\
 			  is/ft_isascii.c\
-			  is/ft_isblank.c\
 			  is/ft_isdigit.c\
 			  is/ft_isprint.c\
 			  is/ft_isspace.c\
@@ -55,6 +48,8 @@ SRC 		= alloc/ft_alloc_init.c\
 			  lst/ft_lstsort_merge.c\
 			  math/ft_exp.c\
 			  mem/ft_bzero.c\
+			  mem/ft_calloc.c\
+			  mem/ft_malloc.c\
 			  mem/ft_memchr.c\
 			  mem/ft_memchrset.c\
 			  mem/ft_memcmp.c\
@@ -62,6 +57,7 @@ SRC 		= alloc/ft_alloc_init.c\
 			  mem/ft_memdup.c\
 			  mem/ft_memmove.c\
 			  mem/ft_memset.c\
+			  mem/ft_realloc.c\
 			  pipex/ft_execve.c\
 			  pipex/ft_pipex.c\
 			  printf/ft_check.c\

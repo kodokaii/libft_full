@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/12/12 18:10:26 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/12/12 18:15:27 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@
 # define FD_MAX 1024
 
 # define TERM_CLEAR		"\e[H\e[2J\e[3J"
-# define COLOR_RESET	"\e[0m"
-# define COLOR_RED		"\e[31m"
-# define COLOR_GREEN	"\e[32m"
-# define COLOR_YELLOW	"\e[33m"
-# define COLOR_BLUE		"\e[34m"
-# define COLOR_MAGENTA	"\e[35m"
-# define COLOR_CYAN		"\e[36m"
-# define COLOR_WHITE	"\e[37m"
+# define COLOR_RESET	"\x1B[0m"
+# define COLOR_RED		"\x1B[31m"
+# define COLOR_GREEN	"\x1B[32m"
+# define COLOR_YELLOW	"\x1B[33m"
+# define COLOR_BLUE		"\x1B[34m"
+# define COLOR_MAGENTA	"\x1B[35m"
+# define COLOR_CYAN		"\x1B[36m"
+# define COLOR_WHITE	"\x1B[37m"
 
 # define ERRLOC "Allocation Error"
 
@@ -77,7 +77,6 @@ typedef struct s_alloc
 	t_list	*memory;
 	t_list	*current;
 	size_t	free_size;
-	size_t	buffer_size;
 }	t_alloc;
 
 t_uint		ft_bytelen(t_byte n, t_byte base);
@@ -114,9 +113,9 @@ t_bool		ft_isalpha(int c);
 t_bool		ft_isdigit(int c);
 t_bool		ft_isalnum(int c);
 t_bool		ft_isascii(int c);
+t_bool		ft_isblank(int c);
 t_bool		ft_isprint(int c);
 t_bool		ft_isspace(int c);
-t_bool		ft_isblank(int c);
 
 int			ft_toupper(int c);
 int			ft_tolower(int c);
@@ -138,7 +137,6 @@ int			ft_memcmp(const void *s1, const void *s2, size_t n);
 void		ft_reset(t_alloc *alloc);
 void		ft_free(t_alloc *alloc);
 void		*ft_malloc(t_alloc *alloc, size_t size);
-void		ft_alloc_init(t_alloc *alloc, size_t buffer_size);
 
 void		*ft_buf_alloc(t_buf *buf, size_t offset, size_t size);
 void		ft_buf_realloc(t_buf *buf, size_t new_size);

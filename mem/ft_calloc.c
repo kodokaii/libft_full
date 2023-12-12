@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isblank.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/12/12 18:09:36 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/10/17 19:56:17 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-t_bool	ft_isblank(int c)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	return (c == ' ' || c == '\t');
+	void	*ptr;
+
+	ptr = malloc(nmemb * size);
+	if (ptr)
+		ft_bzero(ptr, nmemb * size);
+	return (ptr);
 }
