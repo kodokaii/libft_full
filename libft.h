@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/12/12 18:15:27 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/12/13 00:37:08 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,6 +143,7 @@ void		ft_buf_realloc(t_buf *buf, size_t new_size);
 void		ft_buf_free(t_buf *buf);
 void		*ft_buf_write(t_buf *dst, t_buf *src, size_t offset);
 
+char		*ft_strcat(char *dest, char *src);
 char		*ft_strcpy(char *dest, char *src);
 size_t		ft_strlen(const char *s);
 size_t		ft_strlcpy(char *dst, const char *src, size_t size);
