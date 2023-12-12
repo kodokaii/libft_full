@@ -31,6 +31,7 @@ SRC 		= alloc/ft_alloc_init.c\
 			  is/ft_isalnum.c\
 			  is/ft_isalpha.c\
 			  is/ft_isascii.c\
+			  is/ft_isblank.c\
 			  is/ft_isdigit.c\
 			  is/ft_isprint.c\
 			  is/ft_isspace.c\

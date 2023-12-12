@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/12/12 17:44:26 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/12/12 18:10:26 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,7 @@ t_bool		ft_isalnum(int c);
 t_bool		ft_isascii(int c);
 t_bool		ft_isprint(int c);
 t_bool		ft_isspace(int c);
+t_bool		ft_isblank(int c);
 
 int			ft_toupper(int c);
 int			ft_tolower(int c);
