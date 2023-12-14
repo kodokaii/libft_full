@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/12/13 00:37:08 by nlaerema         ###   ########.fr       */
+/*   Updated: 2023/12/14 13:14:49 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,12 @@ typedef struct s_alloc
 	t_list	*current;
 	size_t	free_size;
 }	t_alloc;
+
+typedef struct s_transpipe
+{
+	int	in[2];
+	int	out[2];
+}	t_transpipe;
 
 t_uint		ft_bytelen(t_byte n, t_byte base);
 t_uint		ft_intlen(int n, int base);
@@ -197,9 +203,7 @@ int			ft_close(int *fd);
 
 int			ft_get_heredoc(char const *limiter);
 char		*ft_which(char const *cmd, char *const *envp);
-
-pid_t		ft_execve(int *in, char **cmd, char **envp, int *out);
-int			ft_pipex(int in, char **cmd, char **envp, int out);
+pid_t		ft_execve(int *in, char **argv, char **envp, int *out);
 
 t_list		*ft_lstnew(void *data);
 t_list		*ft_lstnew_alloc(t_alloc *alloc, void *data);

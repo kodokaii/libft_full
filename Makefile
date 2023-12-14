@@ -59,8 +59,6 @@ SRC 		= bst/ft_bstchr.c\
 			  mem/ft_memmove.c\
 			  mem/ft_memset.c\
 			  mem/ft_realloc.c\
-			  pipex/ft_execve.c\
-			  pipex/ft_pipex.c\
 			  printf/ft_check.c\
 			  printf/ft_dprintf.c\
 			  printf/ft_hexa.c\
@@ -78,6 +76,7 @@ SRC 		= bst/ft_bstchr.c\
 			  put/ft_putstrn_fd.c\
 			  shell/ft_heredoc.c\
 			  shell/ft_which.c\
+			  shell/ft_execve.c\
 			  str/ft_strcat.c\
 			  str/ft_strchr.c\
 			  str/ft_strcmp.c\
