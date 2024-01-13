@@ -1,0 +1,7 @@
+*.txt
+*.pdf
+*.swp
+*.o
+a.out
+minilibx
+libft

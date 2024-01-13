@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2024/01/13 12:25:05 by nlaerema         ###   ########.fr       */
+/*   Updated: 2024/01/13 12:32:45 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ typedef struct s_alloc
 	t_list	*memory;
 	t_list	*current;
 	size_t	free_size;
+	size_t	buffer_size;
 }	t_alloc;
 
 typedef struct s_transpipe

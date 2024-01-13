@@ -1,7 +1,13 @@
 NAME 		= libft.a
 CC 			= cc
 CFLAGS 		+= -Wall -Wextra -Werror
-SRC 		= bst/ft_bstchr.c\
+SRC 		= alloc/ft_alloc_init.c\
+			  alloc/ft_calloc.c\
+			  alloc/ft_free.c\
+			  alloc/ft_malloc.c\
+			  alloc/ft_realloc.c\
+			  alloc/ft_reset.c\
+			  bst/ft_bstchr.c\
 			  bst/ft_bstclear.c\
 			  bst/ft_bstiter_infix.c\
 			  bst/ft_bstiter_prefix.c\
@@ -59,6 +65,8 @@ SRC 		= bst/ft_bstchr.c\
 			  mem/ft_memmove.c\
 			  mem/ft_memset.c\
 			  mem/ft_realloc.c\
+			  pipex/ft_execve.c\
+			  pipex/ft_pipex.c\
 			  printf/ft_check.c\
 			  printf/ft_dprintf.c\
 			  printf/ft_hexa.c\
@@ -74,9 +82,9 @@ SRC 		= bst/ft_bstchr.c\
 			  put/ft_putnbr_fd.c\
 			  put/ft_putstr_fd.c\
 			  put/ft_putstrn_fd.c\
+			  shell/ft_execve.c\
 			  shell/ft_heredoc.c\
 			  shell/ft_which.c\
-			  shell/ft_execve.c\
 			  str/ft_strcat.c\
 			  str/ft_strchr.c\
 			  str/ft_strcmp.c\
@@ -101,11 +109,13 @@ SRC 		= bst/ft_bstchr.c\
 			  utils/ft_argv.c\
 			  utils/ft_basename.c\
 			  utils/ft_errloc.c\
+			  utils/ft_error.c\
 			  utils/ft_get_envp.c\
 			  utils/ft_max.c\
 			  utils/ft_min.c\
 			  utils/ft_swap.c\
 			  utils/random.c
+
 OBJ 		= $(SRC:.c=.o)
 
 all: $(NAME)
