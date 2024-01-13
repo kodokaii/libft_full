@@ -85,6 +85,7 @@ SRC 		= alloc/ft_alloc_init.c\
 			  shell/ft_execve.c\
 			  shell/ft_heredoc.c\
 			  shell/ft_which.c\
+			  str/ft_skip_blank.c\
 			  str/ft_strcat.c\
 			  str/ft_strchr.c\
 			  str/ft_strcmp.c\

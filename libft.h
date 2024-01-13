@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2024/01/13 12:32:45 by nlaerema         ###   ########.fr       */
+/*   Updated: 2024/01/13 12:39:55 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,6 +169,7 @@ char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_strtrim(char const *s1, char const *set);
 char		*ft_strmapi(char const *s, char (*f)(size_t, char));
 void		ft_striteri(char *s, void (*f)(size_t, char*));
+char		*ft_skip_blank(char *str);
 
 char		*ft_itoa(int n);
 int			ft_atoi(const char *str);
