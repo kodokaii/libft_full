@@ -6,13 +6,13 @@
 /*   By: nlaerema <nlaerema@student.42lehavre.fr>	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:58:17 by nlaerema          #+#    #+#             */
-/*   Updated: 2023/11/02 09:47:10 by nlaerema         ###   ########.fr       */
+/*   Updated: 2024/01/13 18:18:08 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-static double	ft_decimal_part(const char **str)
+static double	_decimal_part(const char **str)
 {
 	double	res;
 
@@ -26,7 +26,7 @@ static double	ft_decimal_part(const char **str)
 	return (res);
 }
 
-static double	ft_fractional_part(const char *str)
+static double	_fractional_part(const char *str)
 {
 	double	res;
 	double	mod;
@@ -57,8 +57,8 @@ double	ft_atof(const char *str)
 			sign = -1;
 		str++;
 	}
-	res = ft_decimal_part(&str);
+	res = _decimal_part(&str);
 	if (*str == '.')
-		res += ft_fractional_part(++str);
+		res += _fractional_part(++str);
 	return (res * sign);
 }

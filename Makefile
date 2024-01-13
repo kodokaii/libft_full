@@ -24,6 +24,7 @@ SRC 		= alloc/ft_alloc_init.c\
 			  convert/ft_itoa.c\
 			  convert/ft_nblen.c\
 			  convert/ft_split.c\
+			  convert/ft_strtof.c\
 			  convert/ft_strtoi.c\
 			  convert/ft_word.c\
 			  gnl/ft_gnl.c\

@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2024/01/13 12:39:55 by nlaerema         ###   ########.fr       */
+/*   Updated: 2024/01/13 18:17:41 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,6 +175,7 @@ char		*ft_itoa(int n);
 int			ft_atoi(const char *str);
 double		ft_atof(const char *str);
 int			ft_strtoi(const char *nptr, char **endptr);
+double		ft_strtof(const char *str, char **endptr);
 size_t		ft_word_len(char const *str, char const *sep);
 size_t		ft_count_word(char const *str, char const *sep);
 char		**ft_split(char const *s, char *sep);
