@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2023/12/14 13:14:49 by nlaerema         ###   ########.fr       */
+/*   Updated: 2024/01/13 12:25:05 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,7 @@ int			ft_toupper(int c);
 int			ft_tolower(int c);
 
 int			ft_errloc(void);
+int			ft_error(char *msg, int error);
 
 void		*ft_calloc(size_t nmemb, size_t size);
 void		*ft_realloc(void *ptr, size_t oldsize, size_t newsize);
