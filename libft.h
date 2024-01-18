@@ -6,7 +6,7 @@
 /*   By: kodokai <kodokai.featheur@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:43:09 by kodokai           #+#    #+#             */
-/*   Updated: 2024/01/13 18:17:41 by nlaerema         ###   ########.fr       */
+/*   Updated: 2024/01/18 16:25:02 by nlaerema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ double		ft_abs_double(double n);
 float		ft_expf(float x);
 
 void		ft_swap_int(int *a, int *b);
+void		ft_swap_float(float *a, float *b);
 t_llu		ft_srand(t_llu init_seed);
 int			ft_rand(void);
 float		ft_randf(void);
