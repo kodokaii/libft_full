@@ -12,7 +12,7 @@
 
 #include "../libft.h"
 
-void	ft_putlst_fd(t_list *root, void (*put)(), int fd)
+void	ft_putlst_fd(t_list *root, void (*put)(void *, int), int fd)
 {
 	while (root)
 	{

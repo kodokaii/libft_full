@@ -12,7 +12,7 @@
 
 #include "../libft.h"
 
-void	ft_bstclear(t_bst **root, void (*del)())
+void	ft_bstclear(t_bst **root, void (*del)(void *))
 {
 	if (*root)
 	{

@@ -12,7 +12,7 @@
 
 #include "../libft.h"
 
-void	ft_lstiter_inv(t_list *lst, void (*f)())
+void	ft_lstiter_inv(t_list *lst, void (*f)(void *))
 {
 	if (lst)
 	{

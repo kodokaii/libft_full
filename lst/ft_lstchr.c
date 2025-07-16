@@ -12,7 +12,7 @@
 
 #include "../libft.h"
 
-t_list	*ft_lstchr(t_list *root, void *data, int (*cmp)())
+t_list	*ft_lstchr(t_list *root, void *data, int (*cmp)(void *, void *))
 {
 	while (root && cmp(root->data, data))
 		root = root->next;

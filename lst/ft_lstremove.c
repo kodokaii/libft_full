@@ -12,7 +12,7 @@
 
 #include "../libft.h"
 
-void	ft_lstremove(t_list	**lst, void (*del)())
+void	ft_lstremove(t_list	**lst, void (*del)(void *))
 {
 	t_list	*tmp;
 

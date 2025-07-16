@@ -12,7 +12,7 @@
 
 #include "../libft.h"
 
-void	ft_bstiter_prefix(t_bst *root, void (*f)())
+void	ft_bstiter_prefix(t_bst *root, void (*f)(void *))
 {
 	f(root->data);
 	if (root->left)

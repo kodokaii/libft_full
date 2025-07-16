@@ -12,7 +12,7 @@
 
 #include "../libft.h"
 
-t_bool	ft_lstis_sort(t_list *root, int (*cmp)())
+t_bool	ft_lstis_sort(t_list *root, int (*cmp)(void *, void *))
 {
 	while (root && root->next)
 	{

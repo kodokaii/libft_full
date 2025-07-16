@@ -12,7 +12,7 @@
 
 #include "../libft.h"
 
-void	*ft_bstchr(t_bst *root, void *data, int (*cmp)())
+void	*ft_bstchr(t_bst *root, void *data, int (*cmp)(void *, void *))
 {
 	void	*item_find;
 

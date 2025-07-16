@@ -12,7 +12,7 @@
 
 #include "../libft.h"
 
-void	ft_lstsort_merge(t_list **root, t_list *list, int (*cmp)())
+void	ft_lstsort_merge(t_list **root, t_list *list, int (*cmp)(void *, void *))
 {
 	t_list	**current;
 	t_list	*buf;
