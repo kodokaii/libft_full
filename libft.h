@@ -228,7 +228,8 @@ void		ft_lstiter(t_list *lst, void (*f)(void *));
 void		ft_lstiter_inv(t_list *lst, void (*f)(void *));
 t_bool		ft_lstis_sort(t_list *root, int (*cmp)(void *, void *));
 void		ft_lstsort(t_list **root, int (*cmp)(void *, void *));
-void		ft_lstsort_merge(t_list **root, t_list *list, int (*cmp)(void *, void *));
+void		ft_lstsort_merge(t_list **root, t_list *list,
+				int (*cmp)(void*, void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 t_bst		*ft_bstnew(void *data);

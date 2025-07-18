@@ -12,7 +12,8 @@
 
 #include "../libft.h"
 
-static void	ft_merge_sort(t_list **list, t_uint list_size, int (*cmp)(void *, void *))
+static void	ft_merge_sort(t_list **list, t_uint list_size,
+		int (*cmp)(void *, void *))
 {
 	t_list	*mid;
 
